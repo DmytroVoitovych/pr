@@ -10,7 +10,7 @@ const fun = (e) => {
     //  movieAPiServer.query = e.currentTarget.elements.... Значение с инпута
     movieAPiServer.query = "Batman";
     movieAPiServer.page = 2;
-    movieAPiServer.fetchMovieByQuery().then(data=>console.log(data));
+    movieAPiServer.fetchTopMovie().then(data=>console.log(data));
 }
 fun();
 
