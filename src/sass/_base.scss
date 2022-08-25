@@ -1,0 +1,49 @@
+body {
+  font-family: Roboto, sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #2f2f37;
+  }
+
+h1,h2,h3,h4,h5,h6, ul, li, a{
+margin: 0;
+padding: 0;
+list-style: none;
+text-decoration: none;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* робить елемент невидимим */
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.container {
+  max-width: 1280px;
+  padding: 0 16px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) and (max-width: 1279.5px) {
+    max-width: 768px;
+
+  }
+
+  @media screen and (max-width: 767.5px) {
+    max-width: 480px;
+
+  }
+}
