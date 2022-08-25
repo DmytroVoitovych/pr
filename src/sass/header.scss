@@ -1,0 +1,117 @@
+.header {
+    padding-top: 40px;
+    padding-bottom: 92px;
+    height: 230px;
+    
+}
+.homeimg {
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, .56), rgba(0, 0, 0, .56)), url(/src/images/desc/header-desc-lib@1x.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 54px;
+        position: relative;
+}
+
+.logo-text {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.17;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: var(--text-color-light);
+    cursor: pointer;
+}
+
+.search-form {
+        display: flex;
+        margin: 0 auto;
+        max-width: 280px;
+        height: 20px;
+        padding-bottom: 2px;
+        border-bottom: 1px solid var(--text-color-light);
+    }
+
+ .input-form {
+    display: block;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 20px;
+    color: var(--text-color-light);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.17;
+}
+// .submit-btn {
+//         background-color: inherit;
+//         border: none;
+//         outline: none;
+//         margin-left: auto;
+//         padding: 0px;
+//         cursor: pointer;
+//     }
+
+.navigation {
+        margin-left: auto;
+    }
+
+.nav-list {
+    display: flex;
+    width: 180px;
+    justify-content: space-between;
+}
+
+.nav-btn {
+        text-transform: uppercase;
+        padding: 0;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.17;
+        text-transform: uppercase;
+        color: var(--text-color-light);
+        background-color: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+.nav-item {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.17;
+
+    &.is-hidden {
+        display: none;
+    }
+
+}
+.nav-btn {
+    position: relative;
+}
+.nav-btn:hover,
+    .nav-btn:focus {
+        color: var(--text-color-red);
+        transition: 1s ease;
+    }
+
+    .nav-btn::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 12px;
+        background: transparent;
+        height: 50%;
+        width: 100%;
+        transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+        filter: blur(8px);
+        transition: 1s ease;
+    }
+
+    
