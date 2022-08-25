@@ -12,7 +12,7 @@ export default class MovieAPiServer{
     }
 
     async fetchTopMovie() {
-        const URL = `/3/trending/all/day?api_key=${this.API_KEY}`;
+        const URL = `/3/trending/all/day?api_key=${this.API_KEY}&page=${this.pageCounter}`;
         try {
             const response = await axios.get(URL);
             return response;
