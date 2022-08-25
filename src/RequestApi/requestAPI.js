@@ -1,7 +1,14 @@
-const axios = require('axios').default;
 
-axios.defaults.baseURL = 'https://api.themoviedb.org';
 
+import axios from 'axios';
+import { cacheAdapterEnhancer } from 'axios-extensions';
+
+const http = axios.create({
+	baseURL: 'https://api.themoviedb.org',
+	headers: { 'Cache-Control': 'no-cache' },
+	// cache will be enabled by default
+	adapter: cacheAdapterEnhancer(axios.defaults.adapter)
+});
 
 export default class MovieAPiServer{
     constructor() {
@@ -14,7 +21,7 @@ export default class MovieAPiServer{
     async fetchTopMovie() {
         const URL = `/3/trending/all/day?api_key=${this.API_KEY}&page=${this.pageCounter}`;
         try {
-            const response = await axios.get(URL);
+            const response = await http.get(URL);
             return response;
         } catch (error) {
             
@@ -32,7 +39,7 @@ export default class MovieAPiServer{
 
         try {
            
-            const response = await axios.get(URL);
+            const response = await http.get(URL);
 
             return response.data;
           
@@ -51,7 +58,7 @@ export default class MovieAPiServer{
         const URL = `/3/search/movie?api_key=${this.API_KEY}&page=${this.pageCounter}&query=${this.searchQuery}`
 
         try {
-            const response = await axios.get(URL);
+            const response = await http.get(URL);
             return response.data;
           
         } catch (error) {
@@ -98,17 +105,3 @@ export default class MovieAPiServer{
 
    
 
-    // export  const getPost = async ()=> {
-    //         try {
-             
-    //             //   console.log(response);
-    //           let  genres = response.data.genres.map((g, index, arr) => g.name + ', ').join('').slice(0, -2);
-    //            genresF(genres);
-
-
-    //         } catch (error) {
-                 
-                          
-    //         }
-              
-    //     }

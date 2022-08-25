@@ -9,9 +9,7 @@ const fun = (e) => {
     // movieAPiServer.query = "Spider";
     // movieAPiServer.page = 1;
 
-    movieAPiServer.fetchTopMovie().then(data => console.log(data.data)
-    
-    )
+    movieAPiServer.fetchTopMovie().then(data => console.log(data.data))
 }
 fun();
 
