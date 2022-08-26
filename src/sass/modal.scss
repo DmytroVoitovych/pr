@@ -1,3 +1,21 @@
+:root {
+    /* Шрифти */
+    --main-fonts: 'Roboto', sans-serif;
+    // --secondary-fonts: 'Titan One', sans-serif;
+    /* Кольори фону */
+    --bg-color-light-grey: #F7F7F7; //+
+    --bg-color-modal-orange: #FF6B01; //+
+    /* Кольори шрифтів */
+    --text-color-light: #ffffff; //+
+    --text-color-light-orange: #FF6B08; //+
+    --text-color-black: #000000; //+
+    --text-color-red: #FF001B; //+
+    --text-color-grey: #545454; //+
+    --text-color-light-grey: #8C8C8C; //+
+    /* Інші кольори */
+
+}
+
 
 ul,
 li {
@@ -67,7 +85,7 @@ li {
 }
 
 .modal__titleV{
- color: #000000;
+ color: var(--text-color-black);
 font-weight: 500;
     font-size: 30px;
     line-height: 1.16;
@@ -78,15 +96,17 @@ font-weight: 500;
 .modal__listV{
  display: flex;
  flex-direction: column; 
- gap: 8px;  
+ gap: 8px; 
+  
 
  .modal__descV{
 display: grid;
 grid-template-columns: 1fr 1fr;
+align-items: baseline;
 }
 
 .modal__pV{
-color: #8C8C8C; 
+color: var(--text-color-light-grey); 
 font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
@@ -98,9 +118,9 @@ font-weight: 500;
 font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
-    color: #ffffff;
+    color: var(--text-color-light);
     
-    background-color: #FF6B01;
+    background-color: var(--bg-color-modal-orange);
         border-radius: 5px;
 
     padding: 1px 10px;
@@ -113,11 +133,11 @@ font-weight: 500;
     background-color: #F7F7F7;
         border-radius: 5px;
      padding: 1px 4px;
-     color:#000000;
+     color:var(--text-color-black);
 }
 
 .modal__rV{
-     color: #8C8C8C;
+     color: var(--text-color-light-grey);
     font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
@@ -127,7 +147,7 @@ font-weight: 500;
     font-weight: 500;
         font-size: 12px;
         line-height: 1.17;
-        color: #000000;
+        color: var(--text-color-black);
 }
 
 .uperV{
@@ -145,7 +165,7 @@ font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
         text-transform: uppercase;
-        color: #000000;
+        color: var(--text-color-black);
         margin-bottom: 8px;
     
 }
@@ -154,7 +174,7 @@ font-weight: 500;
     font-weight: 500;
         font-size: 12px;
         line-height: 1.7;
-        color: #000000;
+        color: var(--text-color-black);
 }
 
 .modal__button--listV{
@@ -171,9 +191,9 @@ font-weight: 500;
 
 .modal__watchV{
  padding: 14px 10px 12px;
- color: #ffffff;
+ color: var(--text-color-light);
  text-transform: uppercase;
-background: #FF6B01;
+background: var(--bg-color-modal-orange);
     border-radius: 5px;
  border: none;
 border-radius: 5px;
@@ -189,12 +209,12 @@ border-radius: 5px;
 
 .modal__queV {
     padding: 14px 10px 12px;
-    color: #000000;
+    color: var(--text-color-black);
     text-transform: uppercase;
-    background: #ffffff;
+    background: var(--text-color-light);
     border: none;
     border-radius: 5px;
-    outline: 1px solid #000000;
+    outline: 1px solid var(--text-color-black);
     cursor: pointer;
      border-radius: 5px;
         font-weight: 500;
@@ -227,7 +247,7 @@ border-radius: 5px;
 }
 
  .closeV:hover .icoV{
-    stroke: #FF6B01;
+    stroke: var(--bg-color-modal-orange);
     transition: all 250ms;
     
 }

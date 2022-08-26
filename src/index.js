@@ -44,6 +44,7 @@ async function renderMoviesList(data) {
     markupPaginationList(movieAPiServer.page, movieAPiServer.maxPages)
     );
     
+    document.querySelector('.footer').style.opacity = 1; //костыль 
     modal(document.querySelectorAll('.gallery__item'));
 }
 //подія на кнопці пагінації
