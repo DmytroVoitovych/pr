@@ -1,0 +1,236 @@
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.modalV{
+        position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: flex-start;
+    padding: 40px 12px;
+    gap: 16px;
+
+    background-color: var(--text-color-light);
+
+    max-width: 806px ;
+    height: auto ;
+
+    @media screen and (min-width:768px) and (max-width: 1279.5px) {
+            max-width: 704px;
+            width: 100%;
+            padding: 40px 72px 40px 36px;
+        }
+
+                 @media screen and (max-width: 769.5px) {
+                     flex-direction: column;
+                     max-width: 480px;
+                     min-width: 280px;
+                     height: 90vh;
+                     overflow-y: scroll;
+                    padding: 40px 20px;
+                 }
+    
+    
+
+    img{
+        max-width: 375px;
+        border-radius: 5px;
+        max-height: 478px;
+
+        @media screen and (max-width: 769.5px) {
+                width: 100%;
+        
+            }
+
+        @media screen  and (min-width:768px) and (max-width: 1279.5px) {
+            max-width: 264px;
+                max-height: 373px;
+        }
+    }
+}
+
+.closeV{
+    position: absolute;
+        right: 8px;
+            top: 8px;
+            background: none;
+            border: none;
+}
+
+.modal__titleV{
+ color: #000000;
+font-weight: 500;
+    font-size: 30px;
+    line-height: 1.16;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.modal__listV{
+ display: flex;
+ flex-direction: column; 
+ gap: 8px;  
+
+ .modal__descV{
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.modal__pV{
+color: #8C8C8C; 
+font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+}
+ 
+}
+
+.reitV{
+font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    color: #ffffff;
+    
+    background-color: #FF6B01;
+        border-radius: 5px;
+
+    padding: 1px 10px;
+}
+
+.countV{
+    font-weight: 500;
+        font-size: 12px;
+        line-height: 1.17;
+    background-color: #F7F7F7;
+        border-radius: 5px;
+     padding: 1px 4px;
+     color:#000000;
+}
+
+.modal__rV{
+     color: #8C8C8C;
+    font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+}
+
+.modal__valV{
+    font-weight: 500;
+        font-size: 12px;
+        line-height: 1.17;
+        color: #000000;
+}
+
+.uperV{
+    text-transform: uppercase;
+}
+
+.flexboxV{
+    gap: 20px;
+        display: flex;
+        flex-direction: column;
+}
+
+.modal__aboutV{
+    font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        text-transform: uppercase;
+        color: #000000;
+        margin-bottom: 8px;
+    
+}
+
+.about__descV{
+    font-weight: 500;
+        font-size: 12px;
+        line-height: 1.7;
+        color: #000000;
+}
+
+.modal__button--listV{
+    display: flex;
+    gap: 15px;
+
+    @media screen and (max-width: 769.5px) {
+    gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;   
+    }
+}
+
+.modal__watchV{
+ padding: 14px 10px 12px;
+ color: #ffffff;
+ text-transform: uppercase;
+background: #FF6B01;
+    border-radius: 5px;
+ border: none;
+border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    cursor: pointer;
+
+    @media screen and (max-width: 769.5px) {
+            padding: 6px 27px;
+        }
+}
+
+.modal__queV {
+    padding: 14px 10px 12px;
+    color: #000000;
+    text-transform: uppercase;
+    background: #ffffff;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid #000000;
+    cursor: pointer;
+     border-radius: 5px;
+        font-weight: 500;
+            font-size: 12px;
+            line-height: 1.33;
+
+            @media screen and (max-width: 769.5px) {
+                   padding: 13px 11px 13px 13px;
+                }
+            
+}
+
+.backdropV {
+    background-color: rgba(0, 0, 0, 0.25);
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 250ms;
+                
+}
+
+.visibleV{
+   opacity: 1;
+   visibility:visible; 
+   transition: all 250ms;
+}
+
+ .closeV:hover .icoV{
+    stroke: #FF6B01;
+    transition: all 250ms;
+    cursor: pointer;
+}
+
+
+
+
+
