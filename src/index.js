@@ -61,7 +61,7 @@ function onClickPagginationList(event) {
 function scrollToTop() {
   window.scroll({
     top: 0,
-    // behavior: 'smooth',
+    behavior: 'smooth',
   });
 }
 // Пример работы с запросами:
