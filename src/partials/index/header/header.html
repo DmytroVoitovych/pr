@@ -3,22 +3,26 @@
 <header class="header header__home">
     <div class="container">
         <div class="header__container">
-            <a href="./biblioteca.html" rel="noopener noreferrer" class="logo-link">
+            <a href="./index.html" class="logo-link">
                 <svg class="subscribe-form__icon" width="24" height="24">
                     <use href="./images/sprite.svg#icon-logo"></use>
                 </svg> 
                 <span class="logo-text tracking-in-expand">Filmoteka</span></a>
             <nav class="navigation">
                 <ul class="nav-list">
-                    <li class="nav-item">
-                        <button data-lang="home" class="nav-btn home__btn  active__page" type="button">
+                    <li class="nav-item nav-btn home__btn  active__page">
+                        home
+                        <!-- <button data-lang="home" class="nav-btn home__btn  active__page" type="button">
                             home
-                        </button>
+                        </button> -->
                     </li>
-                    <li class="nav-item ">
-                        <button data-lang="library" class="nav-btn library__btn" type="button">
-                            my library
-                        </button>
+                    <li class="nav-item library__btn">
+                        <a href="./biblioteca.html" rel="noopener noreferrer" class ="nav-btn">my library</a>
+                        <!-- <form action="./biblioteca.html">
+                            <button data-lang="library" class="nav-btn library__btn" type="button">
+                                my library
+                            </button>
+                        </form>     -->
                     </li>
                 </ul>
             </nav>
