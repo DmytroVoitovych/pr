@@ -1,0 +1,40 @@
+<!-- <a href="./biblioteca.html" rel="noopener noreferrer">index</a> путь вставить на -->
+<!-- bibliotek -->
+<header class="header header__home">
+    <div class="container">
+        <div class="header__container">
+            <a href="./biblioteca.html" rel="noopener noreferrer" class="logo-link">
+                <svg class="subscribe-form__icon" width="24" height="24">
+                    <use href="./images/sprite.svg#icon-logo"></use>
+                </svg> 
+                <span class="logo-text tracking-in-expand">Filmoteka</span></a>
+            <nav class="navigation">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button data-lang="home" class="nav-btn home__btn  active__page" type="button">
+                            home
+                        </button>
+                    </li>
+                    <li class="nav-item ">
+                        <button data-lang="library" class="nav-btn library__btn" type="button">
+                            my library
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+       </div>
+        <form class="search-form">
+            <input data-lang="placeholder" class="input-form" type="text" placeholder="Movie search">
+            <button class="submit-btn" type="submit">
+                <svg class="menu__icon" width="12" height="12">
+                    <use href="./images/sprite.svg#icon-search"></use>
+                </svg>
+            </button>
+            
+        </form>
+
+        <p class="header__text-error visually-hidden">
+            Search result not successful. Enter the correct movie name.
+        </p>
+    </div>
+</header>
