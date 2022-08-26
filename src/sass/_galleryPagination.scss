@@ -9,32 +9,35 @@ width:374px;
 .pagination__button {
   border-radius: 5px;
   border: 0px;
-  background-color: #ffffff;
-  color: #908e8e;
+  background-color: var(--text-color-light);
+  color: var(--text-color-light-grey);
+  cursor: pointer;
   // width:30px;
 }
 
 .pagination__button:hover{
-color: #000000
+color: var(--text-color-black);
+
+text-shadow: 0px 1px 2px #000;
 }
-.no-active{
-  pointer-events: none;
-}
+
 .current {
   // flex-grow:0;
   width:40px;
   height: 40px;
   flex-basis: 40px;
   pointer-events: none;
-  background-color: #FF6B08;
-  color:#FFFFFF;
+  background-color: var(--text-color-light-orange);
+  color:var(--text-color-light);
 }
 .arrow {
   // flex-grow: 0;
   width: 40px;
   height: 40px;
   flex-basis: 40px;
-  background-color: #F7F7F7;
-  color: #000000;
+  background-color: var(--bg-color-light-grey);
 }
-
+.no-active {
+  pointer-events: none;
+  color: var(--text-color-light-grey);
+}
