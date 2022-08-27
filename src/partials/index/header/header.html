@@ -1,22 +1,28 @@
 
-<header class="header homeimg">
+<!-- <a href="./biblioteca.html" rel="noopener noreferrer">index</a> путь вставить на -->
+<!-- bibliotek -->
+<header class="header header__home">
+
     <div class="container">
-        <div class="wrapper">
-            <!-- <a href="" class="logo-link">
+        <div class="header__container">
+            <a href="./biblioteca.html" rel="noopener noreferrer" class="logo-link">
                 <svg class="subscribe-form__icon" width="24" height="24">
-                    <use href=""></use>
-                </svg> -->
+                    <use href="./images/sprite.svg#icon-logo"></use>
+                </svg> 
                 <span class="logo-text tracking-in-expand">Filmoteka</span></a>
             <nav class="navigation">
                 <ul class="nav-list">
+
                     <li class="nav-item active__page">
                         <a href="#" rel="noopener noreferrer" data-lang="home" class="nav-btn home__btn" type="button">
                             home
                         </a>
                     </li>
+
                     <li class="nav-item">
                         
                           <a href="./biblioteca.html" rel="noopener noreferrer" data-lang="library" class="nav-btn library__btn">
+
                             my library
                             </a>
                         
@@ -27,11 +33,15 @@
         <form class="search-form">
             <input data-lang="placeholder" class="input-form" type="text" placeholder="Movie search">
             <button class="submit-btn" type="submit">
-                <!-- <svg class="menu__icon" width="12" height="12">
-                    <use href="../../images/sprite.svg#icon-search"></use>
-                </svg> -->
+                <svg class="menu__icon" width="12" height="12">
+                    <use href="./images/sprite.svg#icon-search"></use>
+                </svg>
             </button>
-            <p></p>
+            
         </form>
+
+        <p class="header__text-error visually-hidden">
+            Search result not successful. Enter the correct movie name.
+        </p>
     </div>
 </header>
