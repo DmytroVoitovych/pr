@@ -1,5 +1,12 @@
+.gallery{
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+}
+
 .gallery__list {
-  margin-top: 60px;
+
   margin-bottom: 60px;
   display: grid;
 
@@ -74,25 +81,20 @@ text-transform: uppercase;
     line-height: 1.33;
   }
 }
-.page-up {
-  width: 66px;
-  height: 86px;
-  border-color: transparent;
-  border-radius: 15px;
-  position: fixed;
-  bottom: 10;
-  right: 10;
+.page-top-js {
+  border:none;
+  border-radius: 5px;
+  background-color: var(--bg-color-light-grey);
   cursor: pointer;
-  opacity: 0.4;
-  transition: opacity 2s;
-  background-image: url('../images/UP1.png');
-
-  background-clip: padding-box;
-  background-repeat: no-repeat;
+  position: fixed;
+  bottom:10px;
+  right: 20px;
+  transform: rotate(-90deg);
+  transition: color 0.5s;
+  font-size: 40px;
 }
-.page-up:hover {
-  opacity: 0.8;
-
+.page-top-js:hover {
+  color: #9e0117;
 }
 .is-hidden {
   display: none;
