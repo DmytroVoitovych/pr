@@ -3,7 +3,7 @@ import { markupList } from './js/markupList';
 import { markupPaginationList } from './js/markupPaginationList';
 import { modal } from './js/modal/modal';
 import { close } from './js/modal/getPost';
-
+const throttle = require('lodash.throttle');
 
 const movieAPiServer = new MovieAPiServer();
 //рефи
@@ -18,6 +18,7 @@ const refs = {
 // refs.buttonPageTop.addEventListener('click', onClickButtonPageTop);
 refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.backdrop.addEventListener('click', close.funcClickBackdrop);
+window.addEventListener('onload', ()=> document.querySelector('.footer').style.opacity = 1);// костыль скрытия футера
 
 fetchData();
 
@@ -76,6 +77,9 @@ const fun = e => {
 };
 // fun();
 
-window.addEventListener('onload', ()=> document.querySelector('.footer').style.opacity = 1);
+
+
+
+
 
 
