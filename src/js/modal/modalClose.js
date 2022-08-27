@@ -1,20 +1,34 @@
 import { backdrop } from "./markupModal";
+import { controlScreen } from "./controlScreen"; 
+const throttle = require('lodash.throttle');
 
 export class ModalClose {
 
+    body = document.querySelector('body');
+
     onToggle = () => {
+
+     window.addEventListener('scroll', throttle( () => {document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);}, 350));
+
+      const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');   
+
         backdrop.classList.toggle('visibleV');
         if (!document.querySelector('.visibleV')) {
-            return this.blockScroll('auto');
+            this.blockScroll('auto', '', '', '');
+            return window.scrollTo(0, parseInt(this.body.style.top || '0') * -1);
         }
 
-        else {
-           return this.blockScroll('hidden'); 
-        }
-    };
+        else { return  this.blockScroll('scroll', `${scrollY}`, `${controlScreen()}`, 'fixed'); }
+       };
 
-    blockScroll = (cl) =>  document.querySelector('body').style.overflow = `${cl}`;
-
+   
+    blockScroll = (ov, top, wd, p) => {
+       document.querySelector('body').style.overflowY = `${ov}`;
+        document.querySelector('body').style.position = `${p}`;
+         document.querySelector('body').style.width = `${wd}`;
+      return  document.querySelector('body').style.top = `-${top}`;
+     };
+    
 
      funcKeyDown = (e) => {
          if (e.code === 'Escape') {
