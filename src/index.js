@@ -76,6 +76,6 @@ const fun = e => {
 };
 // fun();
 
-window.attachEvent('onload', ()=>    document.querySelector('.footer').style.opacity = 1);
+window.add('onload', ()=> document.querySelector('.footer').style.opacity = 1);
 
 
