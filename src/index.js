@@ -21,6 +21,7 @@ refs.buttonPageTop.addEventListener('click', scrollToTop);
 refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.backdrop.addEventListener('click', close.funcClickBackdrop);
 window.addEventListener('onload', ()=> document.querySelector('.footer').style.opacity = 1);// костыль скрытия футера
+window.addEventListener('scroll', throttle( () => {document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);}, 350)); // установка положения скролла для костыля
 
 fetchData();
 

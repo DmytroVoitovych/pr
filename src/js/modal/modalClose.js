@@ -1,14 +1,11 @@
 import { backdrop } from "./markupModal";
 import { controlScreen } from "./controlScreen"; 
-const throttle = require('lodash.throttle');
 
 export class ModalClose {
 
     body = document.querySelector('body');
 
     onToggle = () => {
-
-     window.addEventListener('scroll', throttle( () => {document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);}, 350));
 
       const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');   
 
