@@ -1,19 +1,25 @@
-import { throttle } from 'lodash';
 import MovieAPiServer from './RequestApi/requestAPI';
 import { markupList } from './js/markupList';
 import { markupPaginationList } from './js/markupPaginationList';
+import { modal } from './js/modal/modal';
+import { close } from './js/modal/getPost';
+
 
 const movieAPiServer = new MovieAPiServer();
 //рефи
 const refs = {
   galleryList: document.querySelector('.gallery-js'),
+
   buttonPageTop: document.querySelector('.page-top-js'),
   pagginationList: document.querySelector('.pagination-js'),
+  backdrop: document.querySelector('.backdropV'),
+
 };
 //прослуховувачі
 window.addEventListener('scroll', throttle(onScroll, 500));
 refs.buttonPageTop.addEventListener('click', scrollToTop);
 refs.pagginationList.addEventListener('click', onClickPagginationList);
+refs.backdrop.addEventListener('click', close.funcClickBackdrop);
 
 fetchData();
 
@@ -50,11 +56,16 @@ async function renderMoviesList(data) {
   refs.galleryList.insertAdjacentHTML(
     'beforeend',
     markupList(data, genresList)
-  );
+    );
+    
+     
   refs.pagginationList.insertAdjacentHTML(
     'beforeend',
     markupPaginationList(movieAPiServer.page, movieAPiServer.maxPages)
-  );
+    );
+    
+    document.querySelector('.footer').style.opacity = 1; //костыль 
+    modal(document.querySelectorAll('.gallery__item'));
 }
 //подія на кнопці пагінації
 function onClickPagginationList(event) {
@@ -97,3 +108,7 @@ function onScroll() {
 //   movieAPiServer.fetchTopMovie().then(data => console.log(data.data));
 // };
 // fun();
+
+window.addEventListener('onload', ()=> document.querySelector('.footer').style.opacity = 1);
+
+

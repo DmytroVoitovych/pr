@@ -2,7 +2,10 @@
 @import './common';
 @import './base';
 @import './mixin.scss';
-@import './modal-footer';
 @import './header.scss';
 @import './gallery';
 @import './galleryPagination';
+@import './components/footer.scss';
+@import './modal-footer';
+@import '../sass/modal.scss'
+
