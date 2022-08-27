@@ -17,6 +17,7 @@ export default class MovieAPiServer {
 
     // добавив
     this.maxPages = null;
+    this.isLoadGenres = true;
   }
   //зміни запит популярні фільми за тиждень
   async fetchTopMovies() {
