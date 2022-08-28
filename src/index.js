@@ -3,6 +3,7 @@ import { markupList } from './js/markupList';
 import { markupPaginationList } from './js/markupPaginationList';
 import { modal } from './js/modal/modal';
 import { close } from './js/modal/getPost';
+import './js/notify-params/notify-styles';
 const throttle = require('lodash.throttle');
 
 const movieAPiServer = new MovieAPiServer();
