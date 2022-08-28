@@ -9,7 +9,7 @@ export const markupModal = ({title, vote_average, vote_count, popularity, origin
     close.onToggle();
     
     
- return  backdrop.innerHTML =  `<div class="modalV">
+ return  backdrop.innerHTML =  `<div class="modalV container">
         <button class='closeV'>${svg}</button>
         <img src='https://image.tmdb.org/t/p/w500${poster_path ?? backdrop_path}' alt="title" />
         <div>

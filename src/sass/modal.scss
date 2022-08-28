@@ -46,14 +46,33 @@ li {
             padding: 40px 72px 40px 36px;
         }
 
-                 @media screen and (max-width: 769.5px) {
+                 @media screen and (min-width:480px) and (max-width: 767.5px) {
                      flex-direction: column;
-                     max-width: 480px;
-                     min-width: 280px;
+                     width: 460px;
+                    //  min-width: 280px;
                      height: 90vh;
                      overflow-y: scroll;
                     padding: 40px 20px;
                  }
+
+                                 @media screen and (max-width: 479.5px) and (orientation: portrait) {
+                                     flex-direction: column;
+                                     width: calc(100% - 40px);
+                                     //  min-width: 280px;
+                                     height: 90vh;
+                                     overflow-y: scroll;
+                                     padding: 40px 20px;
+                                 }
+
+                                                                 @media screen and (max-width: 915.5px) and (orientation:landscape) {
+                                                                    flex-direction: column;
+                                                                        width: 100vw !important;
+                                                                         max-width: inherit;
+                                                                        height: 100.01vh !important;
+                                                                        overflow-y: scroll;
+                                                                        padding: 40px 20px;
+                                                                        flex-direction: row-reverse !important;
+                                                                 }
     
     
 
@@ -61,6 +80,16 @@ li {
         max-width: 375px;
         border-radius: 5px;
         max-height: 478px;
+
+        @media screen and (max-width: 479.5px) and (orientation: portrait) {
+                width: 100%;
+                height: auto;
+            }
+
+            @media screen and (orientation:landscape) {
+            width: 100%;
+                height: auto;
+            }
 
         @media screen and (max-width: 769.5px) {
                 width: 100%;
@@ -158,6 +187,15 @@ font-weight: 500;
     gap: 20px;
         display: flex;
         flex-direction: column;
+
+        @media screen and (orientation: portrait) {
+                gap: 20px !important;
+            }
+
+        @media screen and (max-width: 915.5px) and (orientation:landscape) {
+                gap: 10px !important;
+                padding-bottom: 10px;
+            }
 }
 
 .modal__aboutV{
@@ -187,6 +225,11 @@ font-weight: 500;
         grid-template-columns: 1fr 1fr;
         align-items: center;   
     }
+
+           @media screen and (max-width: 319.5px) {
+               grid: none;
+               text-align: center;
+           }
 }
 
 .modal__watchV{
@@ -204,6 +247,7 @@ border-radius: 5px;
 
     @media screen and (max-width: 769.5px) {
             padding: 6px 27px;
+            max-width: 161px;
         }
 }
 
@@ -222,7 +266,10 @@ border-radius: 5px;
             line-height: 1.33;
 
             @media screen and (max-width: 769.5px) {
-                   padding: 13px 11px 13px 13px;
+                //    padding: 13px 11px 13px 13px;
+                max-width: 161px;
+                    width: 100%;
+                    padding: 13px 7px 13px 7px;
                 }
             
 }
