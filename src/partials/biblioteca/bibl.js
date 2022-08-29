@@ -1,6 +1,8 @@
 // корневой js для библиотеки
 //окуратно оставляет только основу
 console.log('эработаетэ');
+
+
 import { fetchDataLibrary } from '../../js/container';
 const refs = {
   buttonsContainer: document.querySelector('.library__btn--wrapper'),
@@ -148,3 +150,4 @@ function toggleClassOnButtons(currentPage) {
   const buttons = [...refs.buttonsContainer.children];
   buttons.map(button => button.classList.toggle('selected'));
 }
+
