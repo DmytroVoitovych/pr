@@ -3,7 +3,7 @@ const movieAPiServer = new MovieAPiServer();
 import { markupModal } from "./markupModal";
 import { ModalClose } from "./modalClose";
  export const close = new ModalClose();
-
+ 
 
 export const getPost = async (e) => {
     
@@ -16,6 +16,7 @@ export const getPost = async (e) => {
       await markupModal(response);
       await window.addEventListener('keydown', close.funcKeyDown); 
       await document.querySelector('.closeV').addEventListener('click', close.onToggle); 
+        
     
     } catch (error) {
         

@@ -8,14 +8,14 @@ export class ModalClose {
     onToggle = () => {
 
       const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');   
-
+        
         backdrop.classList.toggle('visibleV');
         if (!document.querySelector('.visibleV')) {
             this.blockScroll('auto', '', '', '');
             return window.scrollTo(0, parseInt(this.body.style.top || '0') * -1);
         }
 
-        else { return  this.blockScroll('scroll', `${scrollY}`, `${controlScreen()}`, 'fixed'); }
+        else {  return  this.blockScroll('scroll', `${scrollY}`, `${controlScreen()}`, 'fixed'); }
        };
 
    
