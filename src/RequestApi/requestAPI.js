@@ -67,6 +67,23 @@ export default class MovieAPiServer {
     }
   }
 
+  async getMovieBySearch(searchQuery, page) {
+    const url = `${baseURL}/search/movie?api_key=${this.API_KEY}&query=${searchQuery}&page=${page}`;
+    return await axios
+        .get(url)
+        .then((response) => {
+            // console.log('Search response', response.data);
+            return {
+                page: page,
+                totalItems: response.data.total_results,
+                resultsSearch: response.data.results
+            }
+        })
+        .catch((error) => {console.error("Something wrong with getMovieBySearch fetch", error.message) 
+    })
+  }
+
+
   get id() {
     return this.movieId;
   }

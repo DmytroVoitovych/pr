@@ -3,6 +3,7 @@ import { markupList } from './js/markupList';
 import { markupPaginationList } from './js/markupPaginationList';
 import { modal } from './js/modal/modal';
 import { close } from './js/modal/getPost';
+// import { search } from './partials/index/header/header';
 
 
 const movieAPiServer = new MovieAPiServer();
