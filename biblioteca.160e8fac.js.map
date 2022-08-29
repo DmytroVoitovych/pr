@@ -1,1 +1,0 @@
-{"mappings":"AAE6BA,QAArBC,IAAI","sources":["src/partials/biblioteca/bibl.js"],"sourcesContent":["// корневой js для библиотеки\n//окуратно оставляет только основу\nconsole.log('эработаетэ');"],"names":["console","log"],"version":3,"file":"biblioteca.160e8fac.js.map"}
