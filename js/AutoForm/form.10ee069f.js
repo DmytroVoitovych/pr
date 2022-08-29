@@ -1,0 +1,2 @@
+var form=document.querySelector("[data-form]");console.log(form);var funcSubmit=function(e){e.preventDefault();var t=e.currentTarget.elements.username.value.trim(),r=e.currentTarget.elements.pass.value.trim(),n=e.currentTarget.elements[2];if(validLive(),t&&t.length>=4&&r&&r.length>=4){console.log(t),console.log(r);(new Date).toJSON();console.dir(n),e.currentTarget.reset(),n.disabled=!0}};form.addEventListener("submit",funcSubmit);
+//# sourceMappingURL=form.10ee069f.js.map
