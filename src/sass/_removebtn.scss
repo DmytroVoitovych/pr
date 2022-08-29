@@ -1,0 +1,47 @@
+.remove {
+
+    border: 2px solid #ff6b01;
+    border-radius: 5px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 16px;
+    transition: all .2s;
+    text-transform: uppercase;
+    color: #ff6b01;
+    background-color: initial;
+}
+
+.remove:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px #ff6b01;
+}
+
+.remove:hover:after {
+    transform: scaleX(1.4) scaleY(1.6);
+}
+
+.removeQ {
+    border: 2px solid #ff6b01;
+    border-radius: 5px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 16px;
+    transition: all .2s;
+    text-transform: uppercase;
+    color: #000;
+    background-color: #ff6b01;
+}
+
+.removeQ:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px #ff6b01;
+}
+
+.removeQ:hover:after {
+    transform: scaleX(1.4) scaleY(1.6);
+
+}
