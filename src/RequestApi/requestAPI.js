@@ -38,8 +38,8 @@ export default class MovieAPiServer {
     const URL = `/3/genre/movie/list?api_key=${this.API_KEY}`;
     try {
       const response = await http.get(URL);
-
-      return response.data.genres;
+      const genresList = response.data.genres;
+      localStorage.setItem('genresList', JSON.stringify(genresList));
     } catch (error) {
       return error;
     }
