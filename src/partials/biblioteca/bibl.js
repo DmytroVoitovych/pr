@@ -1,23 +1,19 @@
 // корневой js для библиотеки
-//окуратно оставляет только основу
 import { renderLibraryList, scrollToTop } from '../../js/container';
 import { refs } from '../../js/refs';
 
-const NUMBER_MOVIE_ON_PAGE = 6;
-let activeGroup = getactiveGroup();
+const NUMBER_MOVIE_ON_PAGE = 6; //кількість фільмів на сторінку
+let activeGroup = getActiveGroup();
 let page = 1; // watched or queued
 addClassSelectedOnActiveButton(activeGroup); //добавляю клас selected на активну групу
 
 refs.buttonsContainer.addEventListener('click', onClickButtons);
 refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.backdrop.addEventListener('focusin', onCloseModal);
-// const ppp = document.querySelector('.modalV');
-// console.log(ppp);
-// ppp.addEventListener('focusin', event => console.log('1'));
 
-const currentData = localStorage.getItem(`${activeGroup}`);
-let data = JSON.parse(currentData);
+data = getDataActiveGroup();
 fetchDataLibrary();
+//клік по кнопкам вибору групи
 function onClickButtons(event) {
   const selectData = event.target.dataset.lang;
   if (selectData === activeGroup) {
@@ -26,26 +22,27 @@ function onClickButtons(event) {
   activeGroup = selectData;
   page = 1;
   localStorage.setItem('activeGroup', activeGroup);
-  const currentData = localStorage.getItem(`${activeGroup}`);
-  data = JSON.parse(currentData);
+  data = getDataActiveGroup();
   page = 1;
   fetchDataLibrary(data);
   toggleClassOnButtons(selectData);
 }
+//тоглим класи на кнопках при іншому виборі
 function toggleClassOnButtons(currentPage) {
   const buttons = [...refs.buttonsContainer.children];
   buttons.map(button => button.classList.toggle('selected'));
 }
+// добавляєм клас selected для активної групи
 function addClassSelectedOnActiveButton(activeGroup) {
   const buttons = [...refs.buttonsContainer.children];
   buttons.map(button => {
-    console.log('lang=', button.dataset.lang, 'activeGroup=', activeGroup);
     if (button.dataset.lang === activeGroup) {
       button.classList.add('selected');
     }
   });
 }
-function getactiveGroup() {
+// отримуємо активну групу з локалсторадж інакше ставимо активну queued
+function getActiveGroup() {
   const checkStorageactiveGroup = localStorage.getItem('activeGroup');
   let activeGroup = 'queued';
   if (!checkStorageactiveGroup) {
@@ -55,18 +52,18 @@ function getactiveGroup() {
   }
   return activeGroup;
 }
+//обробляється подія при виборі кнопки пагінації
 function onClickPagginationList(event) {
   const currentPage = event.target.dataset.page;
   if (!currentPage) {
     return;
   }
   page = Number(currentPage);
-
   fetchDataLibrary();
   scrollToTop();
 }
+
 function fetchDataLibrary() {
-  // console.log(page);
   refs.galleryList.innerHTML = '';
   refs.pagginationList.innerHTML = '';
   const newData = data.filter(
@@ -74,19 +71,25 @@ function fetchDataLibrary() {
       index >= (page - 1) * NUMBER_MOVIE_ON_PAGE &&
       index < page * NUMBER_MOVIE_ON_PAGE
   );
-  // console.log(newData);
   renderLibraryList(
     newData,
     page,
     Math.ceil(data.length / NUMBER_MOVIE_ON_PAGE)
   );
 }
-function onCloseModal(event) {
-  console.log('testtesttest');
-  console.log(activeGroup);
-  const currentData = localStorage.getItem(`${activeGroup}`);
-
-  data = JSON.parse(currentData);
-  console.log(data);
+//подія при закриті модалки
+function onCloseModal() {
+  data = getDataActiveGroup();
+  if (data.length % NUMBER_MOVIE_ON_PAGE === 0) {
+    console.log('ntcn');
+    if (page !== 1) {
+      page -= 1;
+    }
+  }
   fetchDataLibrary();
+}
+//отримуємо дані з локалсторадж активної групи
+function getDataActiveGroup() {
+  const currentData = localStorage.getItem(`${activeGroup}`);
+  return JSON.parse(currentData);
 }
