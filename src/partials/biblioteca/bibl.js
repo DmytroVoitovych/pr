@@ -1,153 +1,101 @@
 // корневой js для библиотеки
+
 //окуратно оставляет только основу
 console.log('эработаетэ');
+import { renderLibraryList, scrollToTop } from '../../js/container';
+import { refs } from '../../js/refs';
+
+const NUMBER_MOVIE_ON_PAGE = 6; //кількість фільмів на сторінку
+let activeGroup = getActiveGroup();
+let page = 1; // watched or queued
+addClassSelectedOnActiveButton(activeGroup); //добавляю клас selected на активну групу
 
 
-import { fetchDataLibrary } from '../../js/container';
-const refs = {
-  buttonsContainer: document.querySelector('.library__btn--wrapper'),
-};
 refs.buttonsContainer.addEventListener('click', onClickButtons);
-//рефи
-let currentPage = 'queue';
-const libraryData = [
-  {
-    adult: false,
-    backdrop_path: '/9n5e1vToDVnqz3hW10Jdlvmzpo0.jpg',
-    genre_ids: [28, 18],
-    id: 361743,
-    media_type: 'movie',
-    original_language: 'en',
-    original_title: 'Top Gun: Maverick',
-    overview:
-      'After more than thirty years of service as one of the Navy’s top aviators, and dodging the advancement in rank that would ground him, Pete “Maverick” Mitchell finds himself training a detachment of TOP GUN graduates for a specialized mission the likes of which no living pilot has ever seen.',
-    popularity: 4156.584,
-    poster_path: '/62HCnUTziyWcpDaBO2i1DX17ljH.jpg',
-    release_date: '2022-05-24',
-    title: 'Top Gun: Maverick',
-    video: false,
-    vote_average: 8.374,
-    vote_count: 2911,
-    watched: true,
-    queue: true,
-  },
-  {
-    adult: false,
-    backdrop_path: '/nmGWzTLMXy9x7mKd8NKPLmHtWGa.jpg',
-    genre_ids: [16, 12, 35, 14],
-    id: 438148,
-    media_type: 'movie',
-    original_language: 'en',
-    original_title: 'Minions: The Rise of Gru',
-    overview:
-      'A fanboy of a supervillain supergroup known as the Vicious 6, Gru hatches a plan to become evil enough to join them, with the backup of his followers, the Minions.',
-    popularity: 3250.085,
-    poster_path: '/wKiOkZTN9lUUUNZLmtnwubZYONg.jpg',
-    release_date: '2022-06-29',
-    title: 'Minions: The Rise of Gru',
-    video: false,
-    vote_average: 7.726,
-    vote_count: 1653,
-    watched: false,
-    queue: true,
-  },
-  {
-    adult: false,
-    backdrop_path: '/9n5e1vToDVnqz3hW10Jdlvmzpo0.jpg',
-    genre_ids: [28, 18],
-    id: 361743,
-    media_type: 'movie',
-    original_language: 'en',
-    original_title: 'Top Gun: Maverick',
-    overview:
-      'After more than thirty years of service as one of the Navy’s top aviators, and dodging the advancement in rank that would ground him, Pete “Maverick” Mitchell finds himself training a detachment of TOP GUN graduates for a specialized mission the likes of which no living pilot has ever seen.',
-    popularity: 4156.584,
-    poster_path: '/62HCnUTziyWcpDaBO2i1DX17ljH.jpg',
-    release_date: '2022-05-24',
-    title: 'Top Gun: Maverick',
-    video: false,
-    vote_average: 8.374,
-    vote_count: 2911,
-    watched: true,
-    queue: true,
-  },
-  {
-    adult: false,
-    backdrop_path: '/nmGWzTLMXy9x7mKd8NKPLmHtWGa.jpg',
-    genre_ids: [16, 12, 35, 14],
-    id: 438148,
-    media_type: 'movie',
-    original_language: 'en',
-    original_title: 'Minions: The Rise of Gru',
-    overview:
-      'A fanboy of a supervillain supergroup known as the Vicious 6, Gru hatches a plan to become evil enough to join them, with the backup of his followers, the Minions.',
-    popularity: 3250.085,
-    poster_path: '/wKiOkZTN9lUUUNZLmtnwubZYONg.jpg',
-    release_date: '2022-06-29',
-    title: 'Minions: The Rise of Gru',
-    video: false,
-    vote_average: 7.726,
-    vote_count: 1653,
-    watched: false,
-    queue: true,
-  },
-  {
-    adult: false,
-    backdrop_path: '/9n5e1vToDVnqz3hW10Jdlvmzpo0.jpg',
-    genre_ids: [28, 18],
-    id: 361743,
-    media_type: 'movie',
-    original_language: 'en',
-    original_title: 'Top Gun: Maverick',
-    overview:
-      'After more than thirty years of service as one of the Navy’s top aviators, and dodging the advancement in rank that would ground him, Pete “Maverick” Mitchell finds himself training a detachment of TOP GUN graduates for a specialized mission the likes of which no living pilot has ever seen.',
-    popularity: 4156.584,
-    poster_path: '/62HCnUTziyWcpDaBO2i1DX17ljH.jpg',
-    release_date: '2022-05-24',
-    title: 'Top Gun: Maverick',
-    video: false,
-    vote_average: 8.374,
-    vote_count: 2911,
-    watched: true,
-    queue: true,
-  },
-  {
-    adult: false,
-    backdrop_path: '/nmGWzTLMXy9x7mKd8NKPLmHtWGa.jpg',
-    genre_ids: [16, 12, 35, 14],
-    id: 438148,
-    media_type: 'movie',
-    original_language: 'en',
-    original_title: 'Minions: The Rise of Gru',
-    overview:
-      'A fanboy of a supervillain supergroup known as the Vicious 6, Gru hatches a plan to become evil enough to join them, with the backup of his followers, the Minions.',
-    popularity: 3250.085,
-    poster_path: '/wKiOkZTN9lUUUNZLmtnwubZYONg.jpg',
-    release_date: '2022-06-29',
-    title: 'Minions: The Rise of Gru',
-    video: false,
-    vote_average: 7.726,
-    vote_count: 1653,
-    watched: false,
-    queue: true,
-  },
-];
-const currentData = libraryData.filter(item => item[currentPage]);
-fetchDataLibrary(currentData);
+refs.pagginationList.addEventListener('click', onClickPagginationList);
+refs.backdrop.addEventListener('focusin', onCloseModal);
+
+let data = getDataActiveGroup();
+fetchDataLibrary();
+//клік по кнопкам вибору групи
 function onClickButtons(event) {
   const selectData = event.target.dataset.lang;
-  if (selectData === currentPage) {
+  if (selectData === activeGroup) {
     return;
   }
-
-  const currentData = libraryData.filter(item => item[selectData]);
-  // console.log(currentData);
+  activeGroup = selectData;
+  page = 1;
+  localStorage.setItem('activeGroup', activeGroup);
+  data = getDataActiveGroup();
+  page = 1;
+  fetchDataLibrary(data);
   toggleClassOnButtons(selectData);
-  fetchDataLibrary(currentData);
-  currentPage = selectData;
 }
+//тоглим класи на кнопках при іншому виборі
 function toggleClassOnButtons(currentPage) {
   const buttons = [...refs.buttonsContainer.children];
   buttons.map(button => button.classList.toggle('selected'));
+}
+
+// добавляєм клас selected для активної групи
+function addClassSelectedOnActiveButton(activeGroup) {
+  const buttons = [...refs.buttonsContainer.children];
+  buttons.map(button => {
+    if (button.dataset.lang === activeGroup) {
+      button.classList.add('selected');
+    }
+  });
+}
+// отримуємо активну групу з локалсторадж інакше ставимо активну queued
+function getActiveGroup() {
+  const checkStorageactiveGroup = localStorage.getItem('activeGroup');
+  let activeGroup = 'queued';
+  if (!checkStorageactiveGroup) {
+    localStorage.setItem('activeGroup', activeGroup);
+  } else {
+    activeGroup = checkStorageactiveGroup;
+  }
+  return activeGroup;
+}
+//обробляється подія при виборі кнопки пагінації
+function onClickPagginationList(event) {
+  const currentPage = event.target.dataset.page;
+  if (!currentPage) {
+    return;
+  }
+  page = Number(currentPage);
+  fetchDataLibrary();
+  scrollToTop();
+}
+
+function fetchDataLibrary() {
+  refs.galleryList.innerHTML = '';
+  refs.pagginationList.innerHTML = '';
+  const newData = data.filter(
+    (item, index) =>
+      index >= (page - 1) * NUMBER_MOVIE_ON_PAGE &&
+      index < page * NUMBER_MOVIE_ON_PAGE
+  );
+  renderLibraryList(
+    newData,
+    page,
+    Math.ceil(data.length / NUMBER_MOVIE_ON_PAGE)
+  );
+}
+//подія при закриті модалки
+function onCloseModal() {
+  data = getDataActiveGroup();
+  if (data.length % NUMBER_MOVIE_ON_PAGE === 0) {
+    console.log('ntcn');
+    if (page !== 1) {
+      page -= 1;
+    }
+  }
+  fetchDataLibrary();
+}
+//отримуємо дані з локалсторадж активної групи
+function getDataActiveGroup() {
+  const currentData = localStorage.getItem(`${activeGroup}`);
+  return JSON.parse(currentData);
 }
 

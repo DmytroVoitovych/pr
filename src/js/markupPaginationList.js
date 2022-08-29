@@ -75,6 +75,9 @@ function markupPaginationList(page, maxPages) {
       }" data-page="${item}">${item}</button>`;
     })
     .join(' ');
+  if (maxPages <= 1) {
+    return markupButtonsList;
+  }
   return (
     markupPrevButton(page) +
     markupButtonsList +
