@@ -19,3 +19,4 @@ function activQueue(e) {
     refs.wached.classList.remove('selected');
     refs.queue.classList.add('selected');
 }
+
