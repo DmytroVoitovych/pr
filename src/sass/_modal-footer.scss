@@ -50,19 +50,6 @@
     }
 
 }
-.thumb {
-    position: relative;
-    height: 300px;
-    width: 100%;
-    object-fit: fill;
-}
-
-.thumb>img {
-    display: block;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
 
 
 .button-close {
@@ -127,13 +114,18 @@
 .team-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    @media screen and (max-width:767px) {
+           justify-content: center;
+    
+        }
     @media screen and (min-width:768px) {
         margin: -15px;
+       
     }
 
     @media screen and (min-width:1200px) {
         margin: -15px;
+        justify-content: space-around;
     }
 }
 
@@ -146,7 +138,7 @@
     border-radius: 0px 0px 4px 4px;
 
     @media screen and (max-width:767px) {
-
+        width: 350px;
         &:not(:last-child) {
             margin-bottom: 30px;
         }
@@ -158,17 +150,42 @@
     }
 
     @media screen and (min-width:1200px) {
-        margin: 15px;
-        width: calc((100% - 8 * 15px)/3);
+        margin: 10px;
+        width: calc((100% - 8 * 10px)/3);
+    }
+
+    &:hover, &:focus{
+        box-shadow: 0px 1px 3px rgba(150, 64, 3, 0.915), 0px 1px 1px rgba(66, 34, 11, 0.635),
+                0px 2px 1px rgba(255, 107, 1, 0.409);
+            border-radius: 0px 0px 5px 5px;
+            cursor: pointer;
+            transition: box-shadow .3s;
     }
 }
+.star-icon{
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+.thumb {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    object-fit: fill;
+}
 
-
+.thumb>img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 .team-list__image {
     width: 100%;
 }
 
 .team-list__worker-info {
+    position: relative;
     margin: 30px 0px;
 }
 
