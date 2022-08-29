@@ -1,15 +1,16 @@
 import { svg } from "./svg";
 import { close } from "./getPost";
 export const backdrop = document.querySelector('.backdropV');
-
+import { funcAddWatchBtn } from "../storage/storage";
+import { chekWatch } from "../storage/checkLocal";
+import { chekQueue } from "../storage/checkLocal";  
         
 
-export const markupModal = ({title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path }) => {
-    
+export const markupModal = ({ title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path, id }) => {
+       
     close.onToggle();
-    
-    
- return  backdrop.innerHTML =  `<div class="modalV container">
+   
+    backdrop.innerHTML = `<div class="modalV container" >
         <button class='closeV'>${svg}</button>
         <img src='https://image.tmdb.org/t/p/w500${poster_path ?? backdrop_path}' alt="title" />
         <div>
@@ -26,10 +27,19 @@ export const markupModal = ({title, vote_average, vote_count, popularity, origin
                 <p>${overview}</p>
                 </div>
                 <ul class='modal__button--listV' >
-                    <li><button  type='button' class='modal__watchV'>add to Watched</button></li>
-                    <li><button type='button'  class='modal__queV'>add to queue</button></li>
+                    <li><button data-btn = ${id}  type='button' class='modal__watchV'>add to Watched</button></li>
+                    <li><button data-btn = ${id} type='button'  class='modal__queV'>add to queue</button></li>
                 
             </div>
         </div>
     </div>` ;
+    
+    chekQueue();
+    chekWatch();
+    
+    const obj = { title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path, id };
+    console.log(obj);
+    return funcAddWatchBtn(obj,document.querySelector('.modal__watchV'), document.querySelector('.modal__queV'), id);   
 }
+
+

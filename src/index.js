@@ -20,7 +20,7 @@ window.addEventListener('scroll', throttle(onScroll, 500));
 refs.buttonPageTop.addEventListener('click', scrollToTop);
 refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.backdrop.addEventListener('click', close.funcClickBackdrop);
-window.addEventListener('onload', ()=> document.querySelector('.footer').style.opacity = 1);// костыль скрытия футера
+window.addEventListener('onload', (e) => { e.preventDefault();  return document.querySelector('.footer').style.opacity = 1; });// костыль скрытия футера
 window.addEventListener('scroll', throttle( () => {document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);}, 350)); // установка положения скролла для костыля
 
 fetchData();
@@ -68,6 +68,7 @@ async function renderMoviesList(data) {
     
     document.querySelector('.footer').style.opacity = 1; //костыль 
     modal(document.querySelectorAll('.gallery__item'));
+    
 }
 //подія на кнопці пагінації
 function onClickPagginationList(event) {
@@ -110,6 +111,9 @@ function onScroll() {
 //   movieAPiServer.fetchTopMovie().then(data => console.log(data.data));
 // };
 // fun();
+
+
+
 
 
 
