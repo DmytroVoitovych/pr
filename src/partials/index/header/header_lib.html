@@ -1,8 +1,13 @@
+<!-- <a href="./index.html" rel="noopener noreferrer">home</a> путь вставить на Home -->
 <header class="header library__header">
   <div class="container">
     <div class="header__container">
-      <a href="./biblioteca.html" rel="noopener noreferrer" class="logo-link">
-        <svg class="subscribe-form__icon" width="24" height="24">
+      <a href="./index.html" class="logo-link">
+        <svg
+          class="subscribe-form__icon rotate-vert-center"
+          width="24"
+          height="24"
+        >
           <use href="./images/sprite.svg#icon-logo"></use>
         </svg>
         <span class="logo-text tracking-in-expand">Filmoteka</span></a
@@ -10,40 +15,34 @@
       <nav class="navigation">
         <ul class="nav-list">
           <li class="nav-item">
-            <a
-              href="./index.html"
-              rel="noopener noreferrer"
-              data-lang="home"
-              class="nav-btn home__btn"
-              >home home
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              href="#"
-              rel="noopener noreferrer"
-              data-lang="library"
-              class="nav-btn library__btn active__page"
-              type="button"
+            <a href="./index.html" rel="noopener noreferrer" class="nav-btn"
+              >home</a
             >
-              my library
-            </a>
+            <!-- <button data-lang="home" class="nav-btn home__btn" type="button">
+                            home
+                        </button> -->
+          </li>
+          <li class="nav-item nav-btn library__btn active__page">
+            my library
+            <!-- <button data-lang="library" class="nav-btn library__btn active__page " type="button">
+                            my library
+                        </button> -->
           </li>
         </ul>
       </nav>
     </div>
     <div class="library__btn--wrapper">
       <button
-        data-lang="watchedB"
+        data-lang="watched"
         type="button"
-        class="library__header--btn wached watched selected"
+        class="library__header--btn wached watched"
       >
         Watched
       </button>
       <button
-        data-lang="queue "
+        data-lang="queue"
         type="button"
-        class="library__header--btn queue"
+        class="library__header--btn queue selected"
       >
         queue
       </button>
