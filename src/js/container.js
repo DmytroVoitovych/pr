@@ -16,7 +16,7 @@ refs.buttonPageTop.addEventListener('click', scrollToTop);
 refs.backdrop.addEventListener('click', close.funcClickBackdrop);
 window.addEventListener(
   'onload',
-  () => (document.querySelector('.footer').style.opacity = 1)
+  (e) => { e.preventDefault(); return document.querySelector('.footer').style.opacity = 1; }
 ); // костыль скрытия футера
 window.addEventListener(
   'scroll',

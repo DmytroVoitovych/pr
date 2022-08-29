@@ -1,5 +1,7 @@
 import { backdrop } from "./markupModal";
 import { controlScreen } from "./controlScreen"; 
+import { watch } from "../storage/storage";
+// import { render } from "../../partials/biblioteca/bibl";
 
 export class ModalClose {
 
@@ -9,7 +11,8 @@ export class ModalClose {
 
       const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');   
         
-        backdrop.classList.toggle('visibleV');
+      backdrop.classList.toggle('visibleV'); // закрытие по кнопке
+      
         if (!document.querySelector('.visibleV')) {
             this.blockScroll('auto', '', '', '');
             return window.scrollTo(0, parseInt(this.body.style.top || '0') * -1);
@@ -27,17 +30,19 @@ export class ModalClose {
      };
     
 
-     funcKeyDown = (e) => {
-         if (e.code === 'Escape') {
+     funcKeyDown = (e) => { // закрытие по ескейпу
+       if (e.code === 'Escape') {
+          
             this.onToggle();
            return !backdrop.classList.contains('visibleV') && window.removeEventListener('keydown', this.funcKeyDown);   
          }
          return;        
     };
 
-     funcClickBackdrop = e => {
+     funcClickBackdrop = e => {  //закрытие по бекдропу
         if (e.target === e.currentTarget) {
-            this.onToggle();
+          this.onToggle();
+          
          }
     };
 }
