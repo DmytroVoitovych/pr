@@ -11,7 +11,7 @@ refs.buttonsContainer.addEventListener('click', onClickButtons);
 refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.backdrop.addEventListener('focusin', onCloseModal);
 
-data = getDataActiveGroup();
+let data = getDataActiveGroup();
 fetchDataLibrary();
 //клік по кнопкам вибору групи
 function onClickButtons(event) {
