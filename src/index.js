@@ -1,4 +1,9 @@
 
+import { fetchData } from './js/container';
+import './js/notify-params/notify-styles';
+import {btnDayNight} from './js/btnDayNight';
+
+
 
 import { renderMoviesList, scrollToTop } from './js/container';
 import MovieAPiServer from './RequestApi/requestAPI';
@@ -17,6 +22,9 @@ refs.form.addEventListener('submit', onSubmitForm);
 
 refs.galleryList.classList.add('home');
 fetchData();
+
+btnDayNight ()
+
 
 function onClickPagginationList(event) {
   const currentPage = event.target.dataset.page;
