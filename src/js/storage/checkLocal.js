@@ -9,12 +9,11 @@ export const chekWatch = ()=> {
     
     
     });
-console.log(check);
+
         if (check ) {
-            console.log(btn.textContent);
-            btn.textContent = 'remove';
-            // btn.classList.remove('modal__watchV');
-          return  btn.classList.add('remove');  
+            
+            btn.textContent = 'remove to Watched';
+            return  btn.classList.add('remove');  
             
         }
 
@@ -39,14 +38,14 @@ export const chekQueue = ()=> {
 console.log(check);
         if (check) {
             console.log(btn.textContent);
-            btn.textContent = 'remove';
-          return  btn.classList.add('remove');  
+            btn.textContent = 'remove to Queue';
+          return  btn.classList.add('removeQ');  
             
         }
 
         else {
             btn.textContent = 'add to queue';
-         return   btn.classList.remove('remove'); 
+         return   btn.classList.remove('removeQ'); 
         } 
     
    

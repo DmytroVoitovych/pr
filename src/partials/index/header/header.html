@@ -1,8 +1,10 @@
 <!-- <a href="./biblioteca.html" rel="noopener noreferrer">index</a> путь вставить на -->
 <!-- bibliotek -->
 <header class="header header__home">
-  <a href="./js/AutoForm/form.html">Autorisation</a>
   <div class="container">
+    <a href="./js/AutoForm/form.html" class="custom-btn btn-A"
+      ><span>Autorisation</span></a
+    >
     <div class="header__container">
       <a href="./index.html" class="logo-link">
         <svg
@@ -28,12 +30,12 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" data-auth="false">
             <a
               href="./biblioteca.html"
               rel="noopener noreferrer"
               data-lang="library"
-              class="nav-btn library__btn"
+              class="nav-btn library__btn js-auth"
             >
               my library
             </a>
