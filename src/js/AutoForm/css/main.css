@@ -180,6 +180,7 @@ iframe {
 }
 
 .wrap-login100 {
+  position: relative;
   width: 390px;
   border-radius: 10px;
   overflow: hidden;
@@ -336,13 +337,11 @@ iframe {
 [ Button ]*/
 .container-login100-form-btn {
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
 .login100-form-btn {
@@ -477,3 +476,123 @@ iframe {
 
 
 
+.remove {
+
+  border: 2px solid #ff6b01;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 16px;
+  transition: all .2s;
+  text-transform: uppercase;
+  color: #ff6b01;
+  background-color: initial;
+}
+
+.remove:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px #ff6b01;
+}
+
+.remove:hover:after {
+  transform: scaleX(1.4) scaleY(1.6);
+}
+
+
+/* body .wrap-login100{
+background-image: linear-gradient(90deg,#ccc 0px, rgb(229 229 229 / 90%) 40px,
+#ccc 80px);
+background-size:  300%;
+background-position: 100% 0;
+border-radius: inherit;
+animation: a 1.5s infinite;  
+z-index: 999;
+}
+
+@keyframes a {
+  to {
+    background-position: -100% 0,
+  }
+    to {
+      background-position: -100% 0,
+    }to {
+      background-position: -100% 0,
+    }
+} */
+
+
+.reg {
+  font-size: 12px;
+}
+
+.regDiv {
+      position: absolute;
+        top: 0px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 250ms;
+}
+
+.regVis {
+  
+  opacity: 1;
+  visibility: visible;
+  transition: all 350ms;
+  z-index: 5;
+}
+
+.regAc {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 250ms;
+}
+
+.homeBtnLink{
+    fill: azure;
+}
+    
+.formArrow{
+        fill: #d41889;
+        position: absolute;
+        bottom: 72px;
+        left: 8px;
+        animation: pulse 2s infinite;
+        border-radius: 22px;
+      }
+
+            .formArrow:hover{
+              fill:#555555;
+            }
+
+                        @-webkit-keyframes pulse {
+                          0% {
+                            -webkit-box-shadow: 0 0 0 0 rgba(88, 9, 83, 0.4);
+                          }
+            
+                          70% {
+                            -webkit-box-shadow: 0 0 0 10px rgba(233, 21, 162, 0);
+                          }
+            
+                          100% {
+                            -webkit-box-shadow: 0 0 0 0 rgba(204, 44, 76, 0);
+                          }
+                        }
+            
+                        @keyframes pulse {
+                          0% {
+                            -moz-box-shadow: 0 0 0 0 rgba(204, 44, 161, 0.4);
+                            box-shadow: 0 0 0 0 rgba(204, 44, 60, 0.4);
+                          }
+            
+                          70% {
+                            -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+                            box-shadow: 0 0 0 10px rgba(204, 44, 153, 0);
+                          }
+            
+                          100% {
+                            -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+                            box-shadow: 0 0 0 0 rgba(204, 44, 167, 0);
+                          }
+                        }
