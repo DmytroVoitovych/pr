@@ -5,9 +5,9 @@ import { modal } from './modal/modal';
 import { close } from './modal/getPost';
 import { refs } from './refs';
 import { max } from 'lodash';
-
+import{funcLoader} from './preloader/preloader'
 let throttle = require('lodash.throttle');
-
+import { Block } from 'notiflix/build/notiflix-block-aio';
 //прослуховувачі
 
 window.addEventListener('scroll', throttle(onScroll, 500));
@@ -49,6 +49,12 @@ export function renderMoviesList(data, page, maxPages) {
     'beforeend',
     markupList(data, genresList)
   );
+
+ if ( refs.galleryList.children.length > 0) {
+    Block.dots(`.gallery__item`);
+  
+    funcLoader(document.querySelectorAll(`.gallery__item`));
+  }
 
   refs.pagginationList.insertAdjacentHTML(
     'beforeend',
