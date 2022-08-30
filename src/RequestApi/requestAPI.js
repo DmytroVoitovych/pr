@@ -12,10 +12,12 @@ export default class MovieAPiServer {
   constructor() {
     this.searchQuery = '';
     this.pageCounter = 1;
+
     this.API_KEY = 'a1157fee69973f579feaed0c038c358a';
     this.movieId = null;
 
     // добавив
+    // this.pageSearch = 1;
     this.maxPages = null;
     this.isLoadGenres = true;
   }
@@ -25,7 +27,7 @@ export default class MovieAPiServer {
     try {
       const response = await http.get(URL);
       //добавив
-      this.maxPages = Math.ceil(response.data.total_pages / 20);
+      this.maxPages = response.data.total_pages;
       // ---
       return response.data.results;
     } catch (error) {
@@ -38,8 +40,8 @@ export default class MovieAPiServer {
     const URL = `/3/genre/movie/list?api_key=${this.API_KEY}`;
     try {
       const response = await http.get(URL);
-
-      return response.data.genres;
+      const genresList = response.data.genres;
+      localStorage.setItem('genresList', JSON.stringify(genresList));
     } catch (error) {
       return error;
     }
@@ -58,6 +60,7 @@ export default class MovieAPiServer {
   }
 
   async fetchMovieByQuery() {
+    console.log('test');
     const URL = `/3/search/movie?api_key=${this.API_KEY}&page=${this.pageCounter}&query=${this.searchQuery}`;
 
     try {
