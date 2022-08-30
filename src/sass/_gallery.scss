@@ -36,8 +36,9 @@ box-shadow: 0 3px 2px #777;
 .gallery__img {
   background-image: url(../images/no_movie.jpeg);
   background-position: center;
-  background-repeat: none;
+  background-repeat:no-repeat;
   background-size: contain;
+
   border: none;
   width: 100%;
   height: 574px;
