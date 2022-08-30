@@ -1,3 +1,5 @@
+
+
 import { renderMoviesList, scrollToTop } from './js/container';
 import MovieAPiServer from './RequestApi/requestAPI';
 import './js/notify-params/notify-styles';
@@ -38,6 +40,7 @@ function fetchData() {
   //   return error;
   // });
 }
+
 function onSubmitForm(event) {
   event.preventDefault();
   const searchQuery = event.currentTarget.elements.searchQuery.value.trim();
@@ -90,3 +93,4 @@ function clearList() {
   refs.galleryList.innerHTML = '';
   refs.pagginationList.innerHTML = '';
 }
+

@@ -1,3 +1,4 @@
+import { find } from "lodash";
 
 export const watch = [].concat(JSON.parse(window.localStorage.getItem('watched')) ?? []); // база просмотреных
 export const queue = [].concat(JSON.parse(window.localStorage.getItem('queued')) ?? [] ) ; // база в очереди
@@ -7,10 +8,12 @@ console.log(queue);
 
 const funcUnic = (obj, id, list, ) => { // функция проверки обьекта на уникальность
   const checkId = obj => obj.id === id;
-
+ 
+    let index = list.findIndex(el => el.id == obj.id); // доп проверка 
+   
     if (list.some(checkId)) {
-        
-        return list.splice(-1,1); ;
+      console.log(index);
+        return list.splice(index, 1); ;
     }  
     return list.push(obj);
 };

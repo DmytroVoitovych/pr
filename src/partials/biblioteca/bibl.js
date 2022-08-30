@@ -1,4 +1,7 @@
 // корневой js для библиотеки
+
+//окуратно оставляет только основу
+console.log('эработаетэ');
 import { renderLibraryList, scrollToTop } from '../../js/container';
 import { refs } from '../../js/refs';
 
@@ -6,6 +9,7 @@ const NUMBER_MOVIE_ON_PAGE = 6; //кількість фільмів на сто�
 let activeGroup = getActiveGroup();
 let page = 1; // watched or queued
 addClassSelectedOnActiveButton(activeGroup); //добавляю клас selected на активну групу
+
 
 refs.buttonsContainer.addEventListener('click', onClickButtons);
 refs.pagginationList.addEventListener('click', onClickPagginationList);
@@ -32,6 +36,7 @@ function toggleClassOnButtons(currentPage) {
   const buttons = [...refs.buttonsContainer.children];
   buttons.map(button => button.classList.toggle('selected'));
 }
+
 // добавляєм клас selected для активної групи
 function addClassSelectedOnActiveButton(activeGroup) {
   const buttons = [...refs.buttonsContainer.children];
@@ -93,3 +98,4 @@ function getDataActiveGroup() {
   const currentData = localStorage.getItem(`${activeGroup}`);
   return JSON.parse(currentData);
 }
+
