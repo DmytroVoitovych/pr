@@ -43,11 +43,36 @@
         </ul>
       </nav>
     </div>
-    <form class="search-form">
+
+    <form class="search-form js-form">
       <input
         data-lang="placeholder"
         class="input-form"
         type="text"
+        name="searchQuery"
+
+
+                            my library
+                            </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="switch-btn"></div>
+       </div>
+        <form class="search-form">
+            <input data-lang="placeholder" class="input-form" type="text" placeholder="Movie search">
+            <button class="submit-btn" type="submit">
+                <svg class="menu__icon" width="12" height="12">
+                    <use href="./images/sprite.svg#icon-search"></use>
+                </svg>
+            </button>
+            
+        </form>
+
+        <p class="header__text-error visually-hidden">
+            Search result not successful. Enter the correct movie name.
+        </p>
+    </div>
         placeholder="Movie search"
       />
       <button class="submit-btn" type="submit">
