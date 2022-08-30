@@ -1,0 +1,34 @@
+html.dark body {
+    background-image: url('../images/milky-way-1845068_1280.jpg');
+
+}
+
+html.light body {
+    // background-color: rgb(196, 188, 185);
+    background-image: url('../images/1613791301_3-p-svetlo-serii-fon-dlya-saita-4.jpg');
+}
+html.light header { 
+    box-shadow: 1px 13px 26px -2px rgba(4, 4, 4, 0.90);
+}
+
+html.dark header {
+    box-shadow: 1px 13px 26px -2px rgba(80, 80, 80, 0.90);
+}
+html.dark .footer {
+    background-color: #1a1919ad;
+    box-shadow: -1px -8px 33px 6px rgba(134, 133, 133, 0.25);
+}
+
+html.light .footer {
+    background-color: #ffffff69;
+    box-shadow: -1px -8px 33px 6px rgba(31, 30, 30, 0.26);
+}
+
+html.light .modalV {
+    background-color: #e2d6d6;
+}
+
+html.dark .modalV {
+    background-color:#373535;
+    color: #FFFFFF;
+}
