@@ -92,5 +92,5 @@ regF.addEventListener('submit', funcSubmitReg);
 document.querySelector('.reg').addEventListener('click',  regVis);   
 window.addEventListener('load', (e) =>  e.preventDefault());
 document.querySelector('.formArrow').addEventListener('click', regVis);
-
+document.querySelector('.homeBtnLink').addEventListener('click', () =>  window.history.back());
 

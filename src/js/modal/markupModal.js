@@ -11,13 +11,13 @@ export const markupModal = ({ title, vote_average, vote_count, popularity, origi
        
     close.onToggle();
    
-    backdrop.innerHTML = `<div class="modalV container" >
+    backdrop.innerHTML = `<div class="modalV container " >
         <button class='closeV'>${svg}</button>
         <img  ${ poster_path? `src=https://image.tmdb.org/t/p/w500${poster_path}`: 'src=https://i.ibb.co/7rX0ptx/e58db01cbe029d1732074b2e642bdc0e-3.jpg '  } alt="title" />
         <div>
-            <h3 class='modal__titleV'>${title != null && title? title: 'No date' }</h3>
+            <h3 class='modal__titleV '>${title != null && title? title: 'No date' }</h3>
             <div class='flexboxV' >
-                <ul class='modal__listV'>
+                <ul class='modal__listV '>
                     <li class='modal__descV'><p  class='modal__pV'>Vote / Votes</p><p class='modal__rV'><span class='reitV'>${vote_average.toFixed(1)}</span> / <span class='countV'>${vote_count}</span></p></li>
                     <li class='modal__descV'><p class='modal__pV'>Popularity</p><p class='modal__valV'>${popularity.toFixed(1)}</p></li>
                     <li class='modal__descV'><p class='modal__pV'>Original Title</p><p class='modal__valV uperV'>${original_title}</p></li>
@@ -36,6 +36,7 @@ export const markupModal = ({ title, vote_average, vote_count, popularity, origi
         </div>
     </div>` ;
     
+    them();
     chekQueue();
     chekWatch();
     
@@ -44,4 +45,15 @@ export const markupModal = ({ title, vote_average, vote_count, popularity, origi
     return funcAddWatchBtn(obj,document.querySelector('.modal__watchV'), document.querySelector('.modal__queV'), id);   
 }
 
+/////////////////////////////////////them control///////////////
+const them = () => {
+  if (document.body.classList.contains('section-night')) {
+    document.body.classList.add('them');
+    console.log(document.querySelector('.modalV'));
+    document.querySelector('.modalV').style.backgroundColor = 'brown';
+  }
+  else {
+    document.body.classList.remove('them');
+  }
+};
 

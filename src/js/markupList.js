@@ -16,7 +16,7 @@ function markupList(data, genresList) {
         if (!genre_ids) {
           genre_ids = genres.map(genre => genre.id);
         }
-        const genresMovie = getGenresMovie(genre_ids, genresList);
+        const genresMovie = getGenresMovie(genre_ids,  genresList);
         let date;
 
         const roundRating = Math.round(vote_average * 10).toString();
@@ -34,10 +34,10 @@ function markupList(data, genresList) {
 
         } loading="lazy">
         <div class="gallery__info">
-          <p class="gallery__title">${title}</p>
-          <p class="gallery__text">${genresMovie} | <span>${getDate(
+          <p class="gallery__title them">${title}</p>
+          <p class="gallery__text them">${genresMovie} | <span>${getDate(
           release_date
-        )}</span><span class="gallery__rating">${goodRating}</span></p>
+        )}</span><span class="gallery__rating them">${goodRating}</span></p>
 
 
         </div>
