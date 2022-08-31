@@ -4,7 +4,7 @@ export const funcLoader = (item) => {
    let observer = new ResizeObserver((entries) => { 
       entries.forEach(entry=> {
           const target = entry.target; 
-
+          console.log(target);
           
       if (target.clientWidth > 200) {
 
