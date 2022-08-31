@@ -1,9 +1,4 @@
-
-import { fetchData } from './js/container';
-import './js/notify-params/notify-styles';
-import {btnDayNight} from './js/btnDayNight';
-
-
+import { btnDayNight } from './js/btnDayNight';
 
 import { renderMoviesList, scrollToTop } from './js/container';
 import MovieAPiServer from './RequestApi/requestAPI';
@@ -25,8 +20,7 @@ refs.form.addEventListener('submit', onSubmitForm);
 refs.galleryList.classList.add('home');
 fetchData();
 
-btnDayNight ()
-
+btnDayNight();
 
 function onClickPagginationList(event) {
   const currentPage = event.target.dataset.page;
@@ -75,6 +69,7 @@ function onSubmitForm(event) {
   const searchQuery = event.currentTarget.elements.searchQuery.value.trim();
   refs.form.elements.searchQuery.value = '';
   if (searchQuery === '') {
+    console.log('test');
     Notify.failure('Please enter something', { width: '180px' });
     return;
   }
@@ -124,5 +119,4 @@ function clearList() {
   refs.galleryList.innerHTML = '';
   refs.pagginationList.innerHTML = '';
 }
-
 
