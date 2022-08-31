@@ -12,7 +12,7 @@ export const chekWatch = ()=> {
 
         if (check ) {
             
-            btn.textContent = 'remove to Watched';
+            btn.textContent = 'remove from Watched';
             return  btn.classList.add('remove');  
             
         }
@@ -38,7 +38,7 @@ export const chekQueue = ()=> {
 console.log(check);
         if (check) {
             console.log(btn.textContent);
-            btn.textContent = 'remove to Queue';
+            btn.textContent = 'remove from Queue';
           return  btn.classList.add('removeQ');  
             
         }
