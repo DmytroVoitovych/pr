@@ -38,13 +38,13 @@ export const funcAddWatchBtn = (obj, btnW, btnQ, id) => { // функция до
 
         if (!btnW.classList.contains('remove')) {
             btnW.classList.toggle('remove');    
-            btnW.textContent = 'remove to Watched';
-             Notify.success('Was added to watched');
+            btnW.textContent = 'remove from Watched';
+                Notify.success('Was added to watched');
         }
         else {
             btnW.classList.toggle('remove');
             btnW.textContent = 'add to Watched';
-             Notify.success('Was deleted from watched');
+                Notify.success('Was deleted from watched');
         }
                 
         funcUnic(obj, id, watch, btnW);
@@ -64,7 +64,7 @@ export const funcAddWatchBtn = (obj, btnW, btnQ, id) => { // функция до
 
          if (!btnQ.classList.contains('removeQ')) {
             btnQ.classList.toggle('removeQ');    
-            btnQ.textContent = 'remove to Queue';
+            btnQ.textContent = 'remove from Queue';
             
            Notify.success('Was added to queue');
         }
