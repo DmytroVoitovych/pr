@@ -2,7 +2,7 @@
 
 //окуратно оставляет только основу
 console.log('эработаетэ');
-// import { btnDayNight } from '../../js/btnDayNight';
+import { btnDayNight } from '../../js/btnDayNight';
 import { renderLibraryList, scrollToTop } from '../../js/container';
 import { refs } from '../../js/refs';
 
@@ -16,7 +16,7 @@ refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.backdrop.addEventListener('focusin', onCloseModal);
 
 let data = getDataActiveGroup();
-// btnDayNight();
+btnDayNight();
 fetchDataLibrary();
 //клік по кнопкам вибору групи
 function onClickButtons(event) {
