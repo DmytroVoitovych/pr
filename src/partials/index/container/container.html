@@ -1,6 +1,62 @@
 <section class="container gallery section">
   <ul class="gallery-js gallery__list"></ul>
-  <ul class="pagination-js pagination__list"></ul>
+  <div class="pagination-wrap">
+    <ul class="pagination-js pagination__list"></ul>
+    <div
+      class="backdrop backdrop-pagination is-hidden"
+      modal-pagination
+      data-page="0"
+      tabindex="-1"
+    >
+      <div class="modal-pagination">
+        <button class="close closeV'" modal-pagination-close type="button">
+          <svg width="11px" height="11px">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+        <form class="pagination-form">
+          <div class="form__div">
+            <h3 class="form__name">Перехід на іншу сторінку</h3>
+            <ul class="form__list">
+              <li class="form__item">
+                <label for="page" class="form__label"
+                  >Введіть номер сторінки для переходу</label
+                >
+                <span class="form__span">
+                  <input
+                    type="number"
+                    name="page"
+                    id="pagination-input"
+                    class="form__input"
+                    min="1"
+                    required
+                    autofocus
+                /></span>
+              </li>
+            </ul>
+          </div>
+          <ul class="form_list">
+            <button type="submit" class="button-pagination button_ok">
+              Надіслати
+            </button>
+            <button
+              type="button"
+              class="button-pagination button_no"
+              modal-pagination-button-close
+            >
+              Скасувати
+            </button>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <button type="button" class="page-top-js is-hidden">&#x27A7;</button>
+  <img
+    class="gallery__blank"
+    src="./images/no_movie.jpeg"
+    loading="lazy"
+    style="display: none"
+  />
 </section>

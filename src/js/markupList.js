@@ -1,5 +1,6 @@
-const noMovie = '../images/no_movie.jpeg';
-console.log(noMovie);
+import { refs } from './refs';
+const blankMovie = refs.imageBlank.src;
+
 function markupList(data, genresList) {
   // console.log(data, genresList);
   return data
@@ -16,7 +17,7 @@ function markupList(data, genresList) {
         if (!genre_ids) {
           genre_ids = genres.map(genre => genre.id);
         }
-        const genresMovie = getGenresMovie(genre_ids,  genresList);
+        const genresMovie = getGenresMovie(genre_ids, genresList);
         let date;
 
         const roundRating = Math.round(vote_average * 10).toString();
@@ -28,11 +29,10 @@ function markupList(data, genresList) {
       <li class="gallery__item  "  data-ip=${id}>
         <img class="gallery__img  "
          ${
-          poster_path
-            ? `src=https://image.tmdb.org/t/p/w500/${poster_path}`
-            : ''
-
-        } loading="lazy">
+           poster_path
+             ? `src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}"`
+             : `src="${blankMovie}"`
+         } loading="lazy">
         <div class="gallery__info">
           <p class="gallery__title them">${title}</p>
           <p class="gallery__text them">${genresMovie} | <span>${getDate(

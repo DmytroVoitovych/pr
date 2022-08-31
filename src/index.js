@@ -2,12 +2,12 @@ import { btnDayNight } from './js/btnDayNight';
 
 import { renderMoviesList, scrollToTop } from './js/container';
 import MovieAPiServer from './RequestApi/requestAPI';
-// import './js/notify-params/notify-styles';
 import { refs } from './js/refs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-
 import { paramsNotify } from './js/notify-params/notify-styles';
+import { modalPagination } from './js/modal/modalPagination';
+
 let currentGroup = 'home';
 
 const movieAPiServer = new MovieAPiServer();
@@ -16,25 +16,43 @@ Notify.init(paramsNotify);
 
 refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.form.addEventListener('submit', onSubmitForm);
-
 refs.galleryList.classList.add('home');
 fetchData();
 
 btnDayNight();
 
-function onClickPagginationList(event) {
-  const currentPage = event.target.dataset.page;
-  if (!currentPage) {
-    return;
-  }
-  movieAPiServer.pageCounter = Number(currentPage);
+// function onClickPagginationList(event) {
+//   const currentPage = event.target.dataset.page;
+//   if (!currentPage) {
+//     return;
+//   }
+//   movieAPiServer.pageCounter = Number(currentPage);
 
+function checkCurrentPage() {
   if (currentGroup === 'home') {
     fetchData();
   } else {
     fetchMovieByQueryAgain();
   }
   scrollToTop();
+}
+function onClickPagginationList(event) {
+  const currentPage = event.target.dataset.page;
+  if (currentPage === '...') {
+    modalPagination(movieAPiServer.maxPages)
+      .then(page => {
+        console.log('перехід на сторінку ', page);
+        movieAPiServer.pageCounter = Number(page);
+        checkCurrentPage();
+      })
+      .catch(error => console.log(error));
+    return;
+  }
+  if (!currentPage) {
+    return;
+  }
+  movieAPiServer.pageCounter = Number(currentPage);
+  checkCurrentPage();
 }
 
 function fetchData() {
@@ -48,21 +66,21 @@ function fetchData() {
   // });
 }
 
-
-const red = () => document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
+const red = () =>
+  document
+    .querySelector('.js-auth')
+    .setAttribute('href', '/js/AutoForm/form.html');
 
 const funcAutoLoginControl = () => {
-    const controlLogin = document.querySelector('[data-auth]').dataset = window.localStorage.getItem('auth');
-    if (controlLogin != 'true') {
-        console.log('test');
-        return document.querySelector('.js-auth').addEventListener('click',  red); 
-    }
-    return;
-    
+  const controlLogin = (document.querySelector('[data-auth]').dataset =
+    window.localStorage.getItem('auth'));
+  if (controlLogin != 'true') {
+    console.log('test');
+    return document.querySelector('.js-auth').addEventListener('click', red);
+  }
+  return;
 };
 funcAutoLoginControl();
-
-
 
 function onSubmitForm(event) {
   event.preventDefault();
@@ -119,4 +137,3 @@ function clearList() {
   refs.galleryList.innerHTML = '';
   refs.pagginationList.innerHTML = '';
 }
-

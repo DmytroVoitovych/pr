@@ -7,9 +7,14 @@
 @import './galleryPagination';
 @import './components/footer.scss';
 @import './modal-footer';
+// <<<<<<< Updated upstream
 @import './modal';
 @import './removebtn';
 @import '../sass/btnDayNight';
 @import '../sass/scrollbar';
-@import'./components/preloader'
+@import'./components/preloader';
+// =======
+// @import '../sass/modal.scss';
+@import './components/modalPagination';
+// >>>>>>> Stashed changes
 
