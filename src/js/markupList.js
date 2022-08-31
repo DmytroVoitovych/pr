@@ -28,15 +28,17 @@ function markupList(data, genresList) {
           '.' +
           roundRating[roundRating.length - 1];
         return `
-      <li class="gallery__item" data-ip=${id}>
-        <img class="gallery__img" ${
+      <li class="gallery__item  "  data-ip=${id}>
+        <img class="gallery__img  "
+         ${
           poster_path
             ? `src=https://image.tmdb.org/t/p/w500/${poster_path}`
             : ''
-        } loading="lazy">
-        <div class="gallery__info">
-          <p class="gallery__title">${title}</p>
-          <p class="gallery__text">${genresMovie} | <span>${date}</span><span class="gallery__rating">${goodRating}</span></p>
+        } 
+        loading="lazy">
+        <div class="gallery__info ">
+          <p class="gallery__title ">${title}?${title}:Title</p>
+          <p class="gallery__text ">${genresMovie} | <span >${date}</span><span class="gallery__rating">${goodRating}</span></p>
 
         </div>
       </li>`;

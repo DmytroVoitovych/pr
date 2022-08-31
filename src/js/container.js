@@ -30,10 +30,12 @@ window.addEventListener(
 
 export function renderLibraryList(data, page, maxPages) {
   const genresList = JSON.parse(localStorage.getItem('genresList'));
+
   refs.galleryList.insertAdjacentHTML(
     'beforeend',
     markupList(data, genresList)
   );
+
   refs.pagginationList.insertAdjacentHTML(
     'beforeend',
     markupPaginationList(page, maxPages)
