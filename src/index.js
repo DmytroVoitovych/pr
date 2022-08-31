@@ -5,7 +5,7 @@ import { refs } from './js/refs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { paramsNotify } from './js/notify-params/notify-styles';
 import { modalPagination } from './js/modal/modalPagination';
-const controlLogin = document.querySelector('[data-auth]').dataset = window.localStorage.getItem('auth');
+
 
 let currentGroup = 'home';
 
@@ -64,19 +64,9 @@ function fetchData() {
   //   return error;
   // });
 }
+console.log(document.querySelector('.js-auth'));
 
-const red = () =>
-  document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
 
-  const funcAutoLoginControl = () => {
-  
-  if (controlLogin != 'true') {
-    console.log('test');
-    return document.querySelector('.js-auth').addEventListener('click', red);
-  }
-  return;
-  };
-funcAutoLoginControl();
 
 function onSubmitForm(event) {
   event.preventDefault();
@@ -133,3 +123,16 @@ function clearList() {
   refs.galleryList.innerHTML = '';
   refs.pagginationList.innerHTML = '';
 }
+
+
+const red = () => document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
+
+  const funcAutoLoginControl = () => {
+  const controlLogin = document.querySelector('[data-auth]').dataset = window.localStorage.getItem('auth');
+  if (controlLogin != 'true') {
+    console.log('test');
+    return document.querySelector('.js-auth').addEventListener('click', red);
+  }
+  return  console.log('regyes');;
+  };
+funcAutoLoginControl();/// конец
