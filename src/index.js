@@ -143,7 +143,7 @@ const red = () => {
     console.log(controlLogin);
   if (controlLogin != 'true') {
     console.log('test');
-    return document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');;
+    return document.querySelector('.js-auth').setAttribute('href', 'https://github.com/DmytroVoitovych/pr/js/AutoForm/form.html');
   }
   
   // console.log(e.currentTarget.setAttribute);
