@@ -125,15 +125,29 @@ function clearList() {
 }
 
 
-const red = () => document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
+// const red = () => document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
 
-  const funcAutoLoginControl = () => {
-    const controlLogin = document.querySelector('[data-auth]').dataset.auth = window.localStorage.getItem('auth');
+//   const funcAutoLoginControl = () => {
+//     const controlLogin = document.querySelector('[data-auth]').dataset.auth = window.localStorage.getItem('auth');
+//     console.log(controlLogin);
+//   if (controlLogin != 'true') {
+//     console.log('test');
+//     return document.querySelector('.js-auth').addEventListener('click', red);
+//   }
+//   return  console.log('regyes');;
+//   };
+// funcAutoLoginControl();/// конец
+
+const red = () => {
+   const controlLogin = document.querySelector('[data-auth]').dataset.auth = window.localStorage.getItem('auth');
     console.log(controlLogin);
   if (controlLogin != 'true') {
     console.log('test');
-    return document.querySelector('.js-auth').addEventListener('click', red);
+    return document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');;
   }
-  return  console.log('regyes');;
-  };
-funcAutoLoginControl();/// конец
+  
+  // console.log(e.currentTarget.setAttribute);
+  
+};
+
+document.querySelector('.js-auth').addEventListener('click', red);
