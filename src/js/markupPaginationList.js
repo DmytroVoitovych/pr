@@ -70,9 +70,9 @@ function markupPaginationList(page, maxPages) {
     .map(item => {
       return `<button type="button" class="pagination__button ${
         page === item ? 'current' : ''
-      } ${
-        item === '...' ? 'no-active' : ''
-      }" data-page="${item}">${item}</button>`;
+      }" ${
+        item === '...' ? 'modal-pagination-open' : ''
+      } data-page="${item}">${item}</button>`;
     })
     .join(' ');
   if (maxPages <= 1) {
@@ -86,3 +86,6 @@ function markupPaginationList(page, maxPages) {
 }
 
 export { markupPaginationList };
+
+////
+// item === '...' ? 'no-active' : ''
