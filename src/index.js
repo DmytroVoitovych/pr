@@ -1,12 +1,11 @@
 import { btnDayNight } from './js/btnDayNight';
-
 import { renderMoviesList, scrollToTop } from './js/container';
 import MovieAPiServer from './RequestApi/requestAPI';
 import { refs } from './js/refs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
 import { paramsNotify } from './js/notify-params/notify-styles';
 import { modalPagination } from './js/modal/modalPagination';
+const controlLogin = document.querySelector('[data-auth]').dataset = window.localStorage.getItem('auth');
 
 let currentGroup = 'home';
 
@@ -70,7 +69,7 @@ const red = () =>
   document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
 
   const funcAutoLoginControl = () => {
-  const controlLogin = document.querySelector('[data-auth]').dataset = window.localStorage.getItem('auth');
+  
   if (controlLogin != 'true') {
     console.log('test');
     return document.querySelector('.js-auth').addEventListener('click', red);
