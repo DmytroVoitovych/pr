@@ -1,8 +1,10 @@
 <!-- <a href="./biblioteca.html" rel="noopener noreferrer">index</a> путь вставить на -->
 <!-- bibliotek -->
 <header class="header header__home">
-  <a href="./js/AutoForm/form.html">Autorisation</a>
   <div class="container">
+    <a href="./js/AutoForm/form.html" class="custom-btn btn-A"
+      ><span>Autorisation</span></a
+    >
     <div class="header__container">
       <a href="./index.html" class="logo-link">
         <svg
@@ -28,18 +30,19 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" data-auth="false">
             <a
               href="./biblioteca.html"
               rel="noopener noreferrer"
               data-lang="library"
-              class="nav-btn library__btn"
+              class="nav-btn library__btn js-auth"
             >
               my library
             </a>
           </li>
         </ul>
       </nav>
+      <div class="switch-btn"></div>
     </div>
 
     <form class="search-form js-form">
@@ -48,7 +51,6 @@
         class="input-form"
         type="text"
         name="searchQuery"
-
         placeholder="Movie search"
       />
       <button class="submit-btn" type="submit">
@@ -57,9 +59,5 @@
         </svg>
       </button>
     </form>
-
-    <p class="header__text-error visually-hidden">
-      Search result not successful. Enter the correct movie name.
-    </p>
   </div>
 </header>

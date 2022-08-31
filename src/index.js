@@ -1,19 +1,26 @@
-
+import { btnDayNight } from './js/btnDayNight';
 
 import { renderMoviesList, scrollToTop } from './js/container';
 import MovieAPiServer from './RequestApi/requestAPI';
-import './js/notify-params/notify-styles';
+// import './js/notify-params/notify-styles';
 import { refs } from './js/refs';
-import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+
+import { paramsNotify } from './js/notify-params/notify-styles';
 let currentGroup = 'home';
+
 const movieAPiServer = new MovieAPiServer();
 movieAPiServer.getGenresList();
+Notify.init(paramsNotify);
 
 refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.form.addEventListener('submit', onSubmitForm);
 
 refs.galleryList.classList.add('home');
 fetchData();
+
+btnDayNight();
 
 function onClickPagginationList(event) {
   const currentPage = event.target.dataset.page;
@@ -41,12 +48,29 @@ function fetchData() {
   // });
 }
 
+
+const red = () => document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
+
+const funcAutoLoginControl = () => {
+    const controlLogin = document.querySelector('[data-auth]').dataset = window.localStorage.getItem('auth');
+    if (controlLogin != 'true') {
+        console.log('test');
+        return document.querySelector('.js-auth').addEventListener('click',  red); 
+    }
+    return;
+    
+};
+funcAutoLoginControl();
+
+
+
 function onSubmitForm(event) {
   event.preventDefault();
   const searchQuery = event.currentTarget.elements.searchQuery.value.trim();
   refs.form.elements.searchQuery.value = '';
   if (searchQuery === '') {
-    Notiflix.Notify.info('Please enter something');
+    console.log('test');
+    Notify.failure('Please enter something', { width: '180px' });
     return;
   }
   movieAPiServer.searchQuery = searchQuery;
@@ -57,7 +81,9 @@ function onSubmitForm(event) {
     .then(data => {
       console.log(data);
       if (data.results.length === 0) {
-        Notiflix.Notify.warning('No found movies');
+        Notify.failure(
+          'Search result not successful.. Enter the correct movie name'
+        );
         movieAPiServer.pageCounter = pageHome;
         return;
       }

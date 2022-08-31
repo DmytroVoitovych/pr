@@ -1,0 +1,59 @@
+.switch-btn {
+    display: inline-block;
+    width: 40px; /* ширина переключателя */
+    height: 7px; /* высота переключателя */
+    border-radius: 12px; /* радиус скругления */
+    background: #bfbfbf; /* цвет фона */
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition-duration: 300ms; /* анимация */
+    top: 30px;
+    right: 50px;
+  }
+  .switch-btn::after {
+    content: "";
+    height: 18px; /* высота кнопки */
+    width: 18px; /* ширина кнопки */
+    border-radius: 18px; /* радиус кнопки */
+    background: #fff; /* цвет кнопки */
+    top: -5.3px; /* положение кнопки по вертикали относительно основы */
+    left: -8px; /* положение кнопки по горизонтали относительно основы */
+    transition-duration: 300ms; /* анимация */
+    box-shadow: 0 0 10px 0 #999999; /* тень */
+    position: absolute;
+    z-index: 1;
+  }
+
+  .switch-btn::before{
+    content: "D";
+    height: 0px; /* высота кнопки */
+    width: 0px; /* ширина кнопки */
+    border-radius: 18px; /* радиус кнопки */
+    background: #fff; /* цвет кнопки */
+    top: -8px; /* положение кнопки по вертикали относительно основы */
+    left: -4.5px; /* положение кнопки по горизонтали относительно основы */
+    transition-duration: 300ms; /* анимация */
+    box-shadow: 0 0 10px 0 #999999; /* тень */
+    position: absolute;
+    z-index: 2;
+  }
+  .switch-on {
+    background: rgb(118, 117, 117);
+    box-shadow: inset 0 0 5px 0 #999999; /* тень */
+  }
+  .switch-on::after {
+    left: 30px;
+    background: #353736;
+
+  }.switch-on::before {
+    content: "N";
+    color: #fff;
+    left: 30px;
+    left: 33.3px;
+    background: #353736;
+    z-index: 2;
+  }

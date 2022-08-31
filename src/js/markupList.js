@@ -17,10 +17,7 @@ function markupList(data, genresList) {
           genre_ids = genres.map(genre => genre.id);
         }
         const genresMovie = getGenresMovie(genre_ids, genresList);
-
-        release_date
-          ? (date = new Date(release_date).getFullYear())
-          : (date = 'No date');
+        let date;
 
         const roundRating = Math.round(vote_average * 10).toString();
         const goodRating =
@@ -34,17 +31,26 @@ function markupList(data, genresList) {
           poster_path
             ? `src=https://image.tmdb.org/t/p/w500/${poster_path}`
             : ''
-        } 
-        loading="lazy">
-        <div class="gallery__info ">
-          <p class="gallery__title ">${title}?${title}:Title</p>
-          <p class="gallery__text ">${genresMovie} | <span >${date}</span><span class="gallery__rating">${goodRating}</span></p>
+
+        } loading="lazy">
+        <div class="gallery__info">
+          <p class="gallery__title">${title}</p>
+          <p class="gallery__text">${genresMovie} | <span>${getDate(
+          release_date
+        )}</span><span class="gallery__rating">${goodRating}</span></p>
+
 
         </div>
       </li>`;
       }
     )
     .join(' ');
+}
+function getDate(release_date) {
+  if (!release_date) {
+    return 'No date';
+  }
+  return new Date(release_date).getFullYear();
 }
 function getGenresMovie(genre_ids, genresList) {
   if (genre_ids.length === 0) {
