@@ -7,9 +7,13 @@ body {
   background-color: #fff;
   color: #000000;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
   // width: calc(100vw - 17px); // важно не трогать
   }
-  
+
 
 h1,h2,h3,h4,h5,h6, ul, li, a, p{
 
@@ -55,7 +59,7 @@ img{
   }
 }
 
-.section-night{
-  color: #fff !important;
-  background-color: #2d2a2a !important;
-}
+// .section-night{
+//   color: #fff !important;
+//   background-color: #2d2a2a !important;
+// }

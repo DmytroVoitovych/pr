@@ -36,7 +36,7 @@ export const markupModal = ({ title, vote_average, vote_count, popularity, origi
         </div>
     </div>` ;
     
-    them();
+    // them();
     chekQueue();
     chekWatch();
     

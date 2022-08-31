@@ -1,12 +1,11 @@
 import { btnDayNight } from './js/btnDayNight';
-
 import { renderMoviesList, scrollToTop } from './js/container';
 import MovieAPiServer from './RequestApi/requestAPI';
 import { refs } from './js/refs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
 import { paramsNotify } from './js/notify-params/notify-styles';
 import { modalPagination } from './js/modal/modalPagination';
+
 
 let currentGroup = 'home';
 
@@ -41,6 +40,9 @@ function onClickPagginationList(event) {
   if (currentPage === '...') {
     modalPagination(movieAPiServer.maxPages)
       .then(page => {
+        if (Number(page) === movieAPiServer.pageCounter) {
+          return;
+        }
         console.log('перехід на сторінку ', page);
         movieAPiServer.pageCounter = Number(page);
         checkCurrentPage();
@@ -65,22 +67,9 @@ function fetchData() {
   //   return error;
   // });
 }
+console.log(document.querySelector('.js-auth'));
 
-const red = () =>
-  document
-    .querySelector('.js-auth')
-    .setAttribute('href', '/js/AutoForm/form.html');
 
-const funcAutoLoginControl = () => {
-  const controlLogin = (document.querySelector('[data-auth]').dataset =
-    window.localStorage.getItem('auth'));
-  if (controlLogin != 'true') {
-    console.log('test');
-    return document.querySelector('.js-auth').addEventListener('click', red);
-  }
-  return;
-};
-funcAutoLoginControl();
 
 function onSubmitForm(event) {
   event.preventDefault();
@@ -137,3 +126,31 @@ function clearList() {
   refs.galleryList.innerHTML = '';
   refs.pagginationList.innerHTML = '';
 }
+
+
+// const red = () => document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
+
+//   const funcAutoLoginControl = () => {
+//     const controlLogin = document.querySelector('[data-auth]').dataset.auth = window.localStorage.getItem('auth');
+//     console.log(controlLogin);
+//   if (controlLogin != 'true') {
+//     console.log('test');
+//     return document.querySelector('.js-auth').addEventListener('click', red);
+//   }
+//   return  console.log('regyes');;
+//   };
+// funcAutoLoginControl();/// конец
+
+const red = () => {
+   const controlLogin = document.querySelector('[data-auth]').dataset.auth = window.localStorage.getItem('auth');
+    console.log(controlLogin);
+  if (controlLogin != 'true') {
+    console.log('test');
+    return document.querySelector('.js-auth').setAttribute('href', 'https://dmytrovoitovych.github.io/pr/js/AutoForm/form.html');
+  }
+  
+  // console.log(e.currentTarget.setAttribute);
+  
+};
+
+document.querySelector('.js-auth').addEventListener('click', red);
