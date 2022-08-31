@@ -12,7 +12,7 @@ const funcUnic = (obj, id, list, ) => { // функция проверки об�
     let index = list.findIndex(el => el.id == obj.id); // доп проверка 
    
     if (list.some(checkId)) {
-      console.log(index);
+      
         return list.splice(index, 1); ;
     }  
     return list.push(obj);
@@ -24,7 +24,7 @@ export const funcAddWatchBtn = (obj, btnW, btnQ, id) => { // функция до
         
         if (!btnW.classList.contains('remove')) {
             btnW.classList.toggle('remove');    
-            btnW.textContent = 'remove';
+            btnW.textContent = 'remove to Watched';
             
         }
         else {
@@ -41,19 +41,19 @@ export const funcAddWatchBtn = (obj, btnW, btnQ, id) => { // функция до
 
     btnQ.addEventListener('click', () => {  // в список очереди
         
-         if (!btnQ.classList.contains('remove')) {
-            btnQ.classList.toggle('remove');    
-            btnQ.textContent = 'remove';
+         if (!btnQ.classList.contains('removeQ')) {
+            btnQ.classList.toggle('removeQ');    
+            btnQ.textContent = 'remove to Queue';
             
         }
         else {
-            btnQ.classList.toggle('remove');
-           btnQ.textContent = 'add to Watched';
+            btnQ.classList.toggle('removeQ');
+           btnQ.textContent = 'add to Queue';
            
         }
       
         funcUnic(obj, id, queue, btnQ);
-        console.log(queue, );
+        
         return  window.localStorage.setItem(`queued`, JSON.stringify(queue));
     });
 };

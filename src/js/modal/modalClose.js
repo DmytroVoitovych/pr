@@ -1,7 +1,5 @@
 import { backdrop } from "./markupModal";
 import { controlScreen } from "./controlScreen"; 
-import { watch } from "../storage/storage";
-// import { render } from "../../partials/biblioteca/bibl";
 
 export class ModalClose {
 

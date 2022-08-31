@@ -99,3 +99,4 @@ function getDataActiveGroup() {
   const currentData = localStorage.getItem(`${activeGroup}`);
   return JSON.parse(currentData);
 }
+
