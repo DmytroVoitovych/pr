@@ -22,7 +22,7 @@ btnDayNight();
 
 fetchDataLibrary();
 
-trackingFunFooter();
+// trackingFunFooter();
 
 //клік по кнопкам вибору групи
 function onClickButtons(event) {
@@ -104,7 +104,7 @@ function onCloseModal() {
     }
   }
   fetchDataLibrary();
-   trackingFunFooter();
+  //  trackingFunFooter();
 }
 //отримуємо дані з локалсторадж активної групи
 function getDataActiveGroup() {
