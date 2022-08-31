@@ -39,12 +39,12 @@ export const funcAddWatchBtn = (obj, btnW, btnQ, id) => { // функция до
         if (!btnW.classList.contains('remove')) {
             btnW.classList.toggle('remove');    
             btnW.textContent = 'remove to Watched';
-             Notify.success('Was added to watched');
+            //  Notify.success('Was added to watched');
         }
         else {
             btnW.classList.toggle('remove');
             btnW.textContent = 'add to Watched';
-             Notify.success('Was deleted from watched');
+            //  Notify.success('Was deleted from watched');
         }
                 
         funcUnic(obj, id, watch, btnW);
@@ -54,23 +54,16 @@ export const funcAddWatchBtn = (obj, btnW, btnQ, id) => { // функция до
 
 
     btnQ.addEventListener('click', () => {  // в список очереди
-         const auth = localStorage.getItem('auth');
-   
-        // if (!auth) {
-     
-        //     return Notify.failure('Sorry, but you are not registered');
-  
-        // }  
+      
 
          if (!btnQ.classList.contains('removeQ')) {
             btnQ.classList.toggle('removeQ');    
-         return   btnQ.textContent = 'remove to Queue';
+           btnQ.textContent = 'remove to Queue';
             
-        //    Notify.success('Was added to queue');
-        }
+                }
         else {
             btnQ.classList.toggle('removeQ');
-           btnQ.textContent = 'add to Queue';
+          btnQ.textContent = 'add to Queue';
             // Notify.success('Was deleted from queue');
         }
       

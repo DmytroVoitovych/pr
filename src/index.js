@@ -67,19 +67,16 @@ function fetchData() {
 }
 
 const red = () =>
-  document
-    .querySelector('.js-auth')
-    .setAttribute('href', '/js/AutoForm/form.html');
+  document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
 
-const funcAutoLoginControl = () => {
-  const controlLogin = (document.querySelector('[data-auth]').dataset =
-    window.localStorage.getItem('auth'));
+  const funcAutoLoginControl = () => {
+  const controlLogin = document.querySelector('[data-auth]').dataset = window.localStorage.getItem('auth');
   if (controlLogin != 'true') {
     console.log('test');
     return document.querySelector('.js-auth').addEventListener('click', red);
   }
   return;
-};
+  };
 funcAutoLoginControl();
 
 function onSubmitForm(event) {
