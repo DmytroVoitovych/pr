@@ -128,7 +128,8 @@ function clearList() {
 const red = () => document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
 
   const funcAutoLoginControl = () => {
-  const controlLogin = document.querySelector('[data-auth]').dataset = window.localStorage.getItem('auth');
+    const controlLogin = document.querySelector('[data-auth]').dataset.auth = window.localStorage.getItem('auth');
+    console.log(controlLogin);
   if (controlLogin != 'true') {
     console.log('test');
     return document.querySelector('.js-auth').addEventListener('click', red);
