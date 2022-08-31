@@ -41,6 +41,9 @@ function onClickPagginationList(event) {
   if (currentPage === '...') {
     modalPagination(movieAPiServer.maxPages)
       .then(page => {
+        if (Number(page) === movieAPiServer.pageCounter) {
+          return;
+        }
         console.log('перехід на сторінку ', page);
         movieAPiServer.pageCounter = Number(page);
         checkCurrentPage();
