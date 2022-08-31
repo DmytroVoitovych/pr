@@ -12,12 +12,16 @@
   padding-top: 60px;
   padding-bottom: 60px;
 
+
 }
+
+
 
 .gallery__list {
 
   margin-bottom: 60px;
   display: grid;
+
 
   @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(3, 1fr);

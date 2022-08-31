@@ -5,6 +5,7 @@ console.log('эработаетэ');
 import { btnDayNight } from '../../js/btnDayNight';
 import { renderLibraryList, scrollToTop } from '../../js/container';
 import { refs } from '../../js/refs';
+import { trackingFunFooter } from '../../js/trackingFunFooter/trackingFunFooter'
 
 const NUMBER_MOVIE_ON_PAGE = 6; //кількість фільмів на сторінку
 let activeGroup = getActiveGroup();
@@ -16,10 +17,16 @@ refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.backdrop.addEventListener('focusin', onCloseModal);
 
 let data = getDataActiveGroup();
+
 btnDayNight();
+
 fetchDataLibrary();
+
+trackingFunFooter();
+
 //клік по кнопкам вибору групи
 function onClickButtons(event) {
+
   const selectData = event.target.dataset.lang;
   if (selectData === activeGroup) {
     return;
@@ -34,6 +41,7 @@ function onClickButtons(event) {
 }
 //тоглим класи на кнопках при іншому виборі
 function toggleClassOnButtons(currentPage) {
+ 
   const buttons = [...refs.buttonsContainer.children];
   buttons.map(button => button.classList.toggle('selected'));
 }
@@ -49,6 +57,7 @@ function addClassSelectedOnActiveButton(activeGroup) {
 }
 // отримуємо активну групу з локалсторадж інакше ставимо активну queued
 function getActiveGroup() {
+
   const checkStorageactiveGroup = localStorage.getItem('activeGroup');
   let activeGroup = 'queued';
   if (!checkStorageactiveGroup) {
@@ -70,9 +79,11 @@ function onClickPagginationList(event) {
 }
 
 function fetchDataLibrary() {
+  
   refs.galleryList.innerHTML = '';
   refs.pagginationList.innerHTML = '';
-  const newData = data.filter(
+  
+  const newData =  data.filter(
     (item, index) =>
       index >= (page - 1) * NUMBER_MOVIE_ON_PAGE &&
       index < page * NUMBER_MOVIE_ON_PAGE
@@ -86,13 +97,14 @@ function fetchDataLibrary() {
 //подія при закриті модалки
 function onCloseModal() {
   data = getDataActiveGroup();
-  if (data.length % NUMBER_MOVIE_ON_PAGE === 0) {
+  if ( data.length % NUMBER_MOVIE_ON_PAGE === 0) {
     console.log('ntcn');
     if (page !== 1) {
       page -= 1;
     }
   }
   fetchDataLibrary();
+   trackingFunFooter();
 }
 //отримуємо дані з локалсторадж активної групи
 function getDataActiveGroup() {
