@@ -2,6 +2,7 @@
 
 //окуратно оставляет только основу
 console.log('эработаетэ');
+// import { btnDayNight } from '../../js/btnDayNight';
 import { renderLibraryList, scrollToTop } from '../../js/container';
 import { refs } from '../../js/refs';
 
@@ -10,12 +11,12 @@ let activeGroup = getActiveGroup();
 let page = 1; // watched or queued
 addClassSelectedOnActiveButton(activeGroup); //добавляю клас selected на активну групу
 
-
 refs.buttonsContainer.addEventListener('click', onClickButtons);
 refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.backdrop.addEventListener('focusin', onCloseModal);
 
 let data = getDataActiveGroup();
+// btnDayNight();
 fetchDataLibrary();
 //клік по кнопкам вибору групи
 function onClickButtons(event) {
@@ -98,4 +99,3 @@ function getDataActiveGroup() {
   const currentData = localStorage.getItem(`${activeGroup}`);
   return JSON.parse(currentData);
 }
-
