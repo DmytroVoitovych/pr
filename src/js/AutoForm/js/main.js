@@ -16,13 +16,13 @@ const funcSubmit = (e) => {   // авторизация
     const login =  e.currentTarget.elements.username.value.trim();
     const pass = e.currentTarget.elements.pass.value.trim();
        
-    if (login && login.length >= 4 || pass && pass.length >= 4) {
+    if (login && login.length >= 4 && pass && pass.length >= 4) {
         console.log(login);
         console.log(pass);
                    
         e.currentTarget.reset();
 
-        btnA.disabled = true;
+        
         Block.dots('.login100-form '); // это лоадер перед запросом 
         
               
@@ -50,9 +50,9 @@ const funcSubmitReg = (e) => { // регистрация
     const login = e.currentTarget.elements.username.value.trim();
     const email =  e.currentTarget.elements.email.value.trim();
     const pass = e.currentTarget.elements.passReg.value.trim();
-    const btnSubmit = e.currentTarget.elements[2];
    
-    if (login && login.length >= 4 && pass && pass.length >= 6) {
+   
+    if (login && login.length >= 4 && pass && pass.length >= 6 && email.length >=4 ) {
         
         const regObj = {
             password: pass,
@@ -62,7 +62,7 @@ const funcSubmitReg = (e) => { // регистрация
        
         e.currentTarget.reset();
 
-        btnA.disabled = true;
+        
         Block.dots('.login100-form '); // это лоадер перед запросом 
        
        
@@ -70,13 +70,18 @@ const funcSubmitReg = (e) => { // регистрация
         
     }
      
-    else if (!login || !pass) {
-        btnA.disabled = true; 
+    else if (!login || !pass || !email) {
+        
+       return Notify.info('поля должны быть заполнены')
+    }
+        
+         else if (!email) {
+        
        return Notify.info('поля должны быть заполнены')
     }
             
     else {
-       btnA.disabled = true;  
+        
       return  Notify.failure('Введите больше символов');
     }
 };
