@@ -90,7 +90,10 @@ const funcSubmitReg = (e) => { // регистрация
 form.addEventListener('submit', funcSubmit);  
 regF.addEventListener('submit', funcSubmitReg);  
 document.querySelector('.reg').addEventListener('click',  regVis);   
-window.addEventListener('load', (e) =>  e.preventDefault());
+// window.addEventListener('load', (e) =>  e.preventDefault());
 document.querySelector('.formArrow').addEventListener('click', regVis);
-document.querySelector('.homeBtnLink').addEventListener('click', () =>  window.history.back());
+document.querySelector('.homeBtnLink').addEventListener('click', back);
 
+function back() {
+    setTimeout(() => window.location.replace('../../index.html'), 1000);
+};

@@ -28,23 +28,23 @@ export const funcAddWatchBtn = (obj, btnW, btnQ, id) => { // функция до
 
     btnW.addEventListener('click', () => {  // в список просмотреных
         
- const auth = localStorage.getItem('auth');
+//  const auth = localStorage.getItem('auth');
    
-        if (!auth) {
+        // if (!auth) {
      
-            return Notify.failure('Sorry, but you are not registered');
+        //     return Notify.failure('Sorry, but you are not registered');
   
-        }  
+        // }  
 
         if (!btnW.classList.contains('remove')) {
             btnW.classList.toggle('remove');    
             btnW.textContent = 'remove to Watched';
-             Notify.success('Was added to watched');
+            //  Notify.success('Was added to watched');
         }
         else {
             btnW.classList.toggle('remove');
             btnW.textContent = 'add to Watched';
-             Notify.success('Was deleted from watched');
+            //  Notify.success('Was deleted from watched');
         }
                 
         funcUnic(obj, id, watch, btnW);
@@ -54,29 +54,22 @@ export const funcAddWatchBtn = (obj, btnW, btnQ, id) => { // функция до
 
 
     btnQ.addEventListener('click', () => {  // в список очереди
-         const auth = localStorage.getItem('auth');
-   
-        if (!auth) {
-     
-            return Notify.failure('Sorry, but you are not registered');
-  
-        }  
+      
 
          if (!btnQ.classList.contains('removeQ')) {
             btnQ.classList.toggle('removeQ');    
-            btnQ.textContent = 'remove to Queue';
+           btnQ.textContent = 'remove to Queue';
             
-           Notify.success('Was added to queue');
-        }
+                }
         else {
             btnQ.classList.toggle('removeQ');
-           btnQ.textContent = 'add to Queue';
-            Notify.success('Was deleted from queue');
+          btnQ.textContent = 'add to Queue';
+            // Notify.success('Was deleted from queue');
         }
       
         funcUnic(obj, id, queue, btnQ);
         
-        window.localStorage.setItem(`queued`, JSON.stringify(queue));
+      return  window.localStorage.setItem(`queued`, JSON.stringify(queue));
         
     });
 };

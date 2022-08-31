@@ -22,9 +22,11 @@ btnDayNight();
 
 fetchDataLibrary();
 
+
 // if (data === 0) {
 //   trackingFunFooter();
 // }
+
 
 //клік по кнопкам вибору групи
 function onClickButtons(event) {
@@ -102,9 +104,11 @@ function onCloseModal() {
     }
   }
   fetchDataLibrary();
+
   // if (data === 0) {
   //   trackingFunFooter();
   // }
+
 }
 //отримуємо дані з локалсторадж активної групи
 function getDataActiveGroup() {
