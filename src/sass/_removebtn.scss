@@ -5,12 +5,18 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: 700;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 16px;
     transition: all .2s;
     text-transform: uppercase;
     color: #ff6b01;
     background-color: initial;
+    &:hover {
+            color: var(--text-color-light);
+            text-transform: uppercase;
+            background: var(--bg-color-modal-orange);
+            outline: none;
+        }
 }
 
 .remove:active {
@@ -28,12 +34,15 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: 700;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 16px;
     transition: all .2s;
     text-transform: uppercase;
-    color: #000;
-    background-color: #ff6b01;
+    // color: #000;
+    // background-color: #ff6b01;
+    color: #ff6b01;
+    background-color: initial;
+    outline: none;
 }
 
 .removeQ:active {
@@ -44,4 +53,12 @@
 .removeQ:hover:after {
     transform: scaleX(1.4) scaleY(1.6);
 
+}
+
+.modal__watchV.remove,
+.modal__queV.removeQ {
+    font-family: Roboto, sans-serif;
+    font-size: 12 px;
+    font-weight: 500;
+    line-height: 1.33;
 }
