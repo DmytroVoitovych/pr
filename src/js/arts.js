@@ -2,7 +2,7 @@
 export const funcControlArts = (title) => {
   const body = document.querySelector('body');
   console.log(body);
-  if (body.classList.contains('section-night') ) {
+  if (body.classList.contains('section-night')) {
   // const title = document.querySelectorAll('.gallery__title .them');  
       document.querySelector('footer').style.backgroundColor = '#751D1D'; 
       document.querySelector('.footer-block').style.color = '#f7f7f7';

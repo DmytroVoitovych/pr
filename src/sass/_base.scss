@@ -72,3 +72,17 @@ img{
             right: -30px;
             opacity: 0;
 }
+
+.empty{
+  display: inline-block;
+  font-size: 44px;
+  text-align: center;
+  position: relative;
+  text-stroke: 2px #f0a900;
+ -webkit-text-stroke:2px #f0a900;
+ color: transparent;
+
+ @media screen and (max-width: 319.5px) {
+  font-size: 32px;
+ }
+}

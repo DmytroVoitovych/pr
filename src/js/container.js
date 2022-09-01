@@ -48,7 +48,7 @@ export function renderLibraryList(data, page, maxPages) {
 
   document.querySelector('.footer').style.opacity = 1; //костыль
   
-   
+  funcControlArts(document.querySelectorAll('.gallery__title')); 
   modal(document.querySelectorAll('.gallery__item'));
 
 

@@ -1,8 +1,4 @@
-// корневой js для библиотеки
 
-
-//окуратно оставляет только основу
-console.log('эработаетэ');
 import { btnDayNight } from '../../js/btnDayNight';
 import { renderLibraryList, scrollToTop } from '../../js/container';
 import { refs } from '../../js/refs';
@@ -20,11 +16,11 @@ refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.backdrop.addEventListener('focusin', onCloseModal);
 
 let data = getDataActiveGroup();
-
+// window.addEventListener('onload',()=> funcControlArts(document.querySelectorAll('.gallery__title')));
 btnDayNight();
 
 fetchDataLibrary();
-trackingEmptyLibrary();
+trackingEmptyLibrary(document.querySelector('.gallery__list'));
 
 // if (data === 0) {
 //   trackingFunFooter();
@@ -43,12 +39,14 @@ function onClickButtons(event) {
   data = getDataActiveGroup();
   page = 1;
   fetchDataLibrary(data);
+  trackingEmptyLibrary(document.querySelector('.gallery__list'));// кон
   toggleClassOnButtons(selectData);
 }
 //тоглим класи на кнопках при іншому виборі
 function toggleClassOnButtons(currentPage) {
   const buttons = [...refs.buttonsContainer.children];
   buttons.map(button => button.classList.toggle('selected'));
+    trackingEmptyLibrary(document.querySelector('.gallery__list'));// кон
 }
 
 // добавляєм клас selected для активної групи
@@ -97,6 +95,8 @@ function fetchDataLibrary() {
     Math.ceil(data.length / NUMBER_MOVIE_ON_PAGE)
   );
   
+  trackingEmptyLibrary(document.querySelector('.gallery__list'));// кон
+  
 }
 //подія при закриті модалки
 function onCloseModal() {
@@ -108,7 +108,7 @@ function onCloseModal() {
     }
   }
   fetchDataLibrary();
-
+  trackingEmptyLibrary(document.querySelector('.gallery__list'));
   // if (data === 0) {
   //   trackingFunFooter();
   // }
@@ -122,3 +122,10 @@ function getDataActiveGroup() {
   }
   return JSON.parse(currentData);
 }
+
+
+
+document.querySelector('.wached').addEventListener('click', trackingEmptyLibrary);// контроль контейнера
+
+
+
