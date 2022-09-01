@@ -5,7 +5,8 @@ import { refs } from './js/refs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { paramsNotify } from './js/notify-params/notify-styles';
 import { modalPagination } from './js/modal/modalPagination';
-
+import { funcLoginControl } from './js/AutoForm/js/avtoLogin';
+import { funcControlArts } from './js/btnDayNight';
 
 let currentGroup = 'home';
 
@@ -16,9 +17,11 @@ Notify.init(paramsNotify);
 refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.form.addEventListener('submit', onSubmitForm);
 refs.galleryList.classList.add('home');
+refs.avtoLogin.addEventListener('click', funcLoginControl);
 fetchData();
 
 btnDayNight();
+   funcControlArts();//test
 
 // function onClickPagginationList(event) {
 //   const currentPage = event.target.dataset.page;
@@ -125,29 +128,8 @@ function clearList() {
 }
 
 
-// const red = () => document.querySelector('.js-auth').setAttribute('href', '/js/AutoForm/form.html');
 
-//   const funcAutoLoginControl = () => {
-//     const controlLogin = document.querySelector('[data-auth]').dataset.auth = window.localStorage.getItem('auth');
-//     console.log(controlLogin);
-//   if (controlLogin != 'true') {
-//     console.log('test');
-//     return document.querySelector('.js-auth').addEventListener('click', red);
-//   }
-//   return  console.log('regyes');;
-//   };
-// funcAutoLoginControl();/// конец
 
-const red = () => {
-   const controlLogin = document.querySelector('[data-auth]').dataset.auth = window.localStorage.getItem('auth');
-    console.log(controlLogin);
-  if (controlLogin != 'true') {
-    console.log('test');
-    return document.querySelector('.js-auth').setAttribute('href', 'https://dmytrovoitovych.github.io/pr/js/AutoForm/form.html');
-  }
-  
-  // console.log(e.currentTarget.setAttribute);
-  
-};
 
-document.querySelector('.js-auth').addEventListener('click', red);
+
+

@@ -7,6 +7,7 @@ import { max } from 'lodash';
 import { funcLoader } from './preloader/preloader';
 let throttle = require('lodash.throttle');
 import { Block } from 'notiflix/build/notiflix-block-aio';
+
 //прослуховувачі
 
 window.addEventListener('scroll', throttle(onScroll, 500));
@@ -16,7 +17,7 @@ refs.backdrop.addEventListener('click', close.funcClickBackdrop);
 
 // window.addEventListener(
 //   'onload',
-//   (e) => { e.preventDefault(); return document.querySelector('.footer').style.opacity = 1; }
+//   (e) => { e.preventDefault(); return console.log(e); }
 // ); // костыль скрытия футера
 
 
@@ -37,6 +38,7 @@ export function renderLibraryList(data, page, maxPages) {
     'beforeend',
     markupList(data, genresList)
   );
+  
 
   refs.pagginationList.insertAdjacentHTML(
     'beforeend',

@@ -6,6 +6,7 @@ const refs = {
   backdropPagination: document.querySelector('.backdrop-pagination'),
   buttonsContainer: document.querySelector('.library__btn--wrapper'),
   form: document.querySelector('.js-form'),
+  avtoLogin: document.querySelector('.js-auth'), 
   imageBlank: document.querySelector('.gallery__blank'),
   closeModalBtn: document.querySelector('[modal-pagination-close]'),
   closeFormButton: document.querySelector('[modal-pagination-button-close]'),
