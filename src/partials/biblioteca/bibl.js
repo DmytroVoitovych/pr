@@ -7,6 +7,7 @@ import { btnDayNight } from '../../js/btnDayNight';
 import { renderLibraryList, scrollToTop } from '../../js/container';
 import { refs } from '../../js/refs';
 import { funcControlArts } from '../../js/arts';
+import {trackingEmptyLibrary} from '../../js/trackingEmptyLibrary/trackingEmptyLibrary
 // import { trackingFunFooter } from '../../js/trackingFunFooter/trackingFunFooter';
 
 const NUMBER_MOVIE_ON_PAGE = 6; //кількість фільмів на сторінку
@@ -23,7 +24,7 @@ let data = getDataActiveGroup();
 btnDayNight();
 
 fetchDataLibrary();
-
+trackingEmptyLibrary();
 
 // if (data === 0) {
 //   trackingFunFooter();
@@ -96,6 +97,7 @@ function fetchDataLibrary() {
     Math.ceil(data.length / NUMBER_MOVIE_ON_PAGE)
   );
   funcControlArts(document.querySelectorAll('.gallery__title'));
+  
 }
 //подія при закриті модалки
 function onCloseModal() {
@@ -107,7 +109,7 @@ function onCloseModal() {
     }
   }
   fetchDataLibrary();
-
+trackingEmptyLibrary();
   // if (data === 0) {
   //   trackingFunFooter();
   // }

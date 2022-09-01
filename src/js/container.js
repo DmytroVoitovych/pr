@@ -9,7 +9,6 @@ let throttle = require('lodash.throttle');
 import { Block } from 'notiflix/build/notiflix-block-aio';
 import { funcControlArts } from './arts';
 import { controlScreen } from './modal/controlScreen';
-
 //прослуховувачі
 
 window.addEventListener('scroll', throttle(onScroll, 500));
