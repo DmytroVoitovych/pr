@@ -6,7 +6,7 @@ export class ModalClose {
     body = document.querySelector('body');
 
     onToggle = () => {
-
+      
       const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');   
         
       backdrop.classList.toggle('visibleV'); // закрытие по кнопке

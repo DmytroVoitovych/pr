@@ -1,10 +1,12 @@
 // корневой js для библиотеки
 
+
 //окуратно оставляет только основу
 console.log('эработаетэ');
 import { btnDayNight } from '../../js/btnDayNight';
 import { renderLibraryList, scrollToTop } from '../../js/container';
 import { refs } from '../../js/refs';
+import { funcControlArts } from '../../js/arts';
 // import { trackingFunFooter } from '../../js/trackingFunFooter/trackingFunFooter';
 
 const NUMBER_MOVIE_ON_PAGE = 6; //кількість фільмів на сторінку
@@ -93,6 +95,7 @@ function fetchDataLibrary() {
     page,
     Math.ceil(data.length / NUMBER_MOVIE_ON_PAGE)
   );
+  funcControlArts(document.querySelectorAll('.gallery__title'));
 }
 //подія при закриті модалки
 function onCloseModal() {

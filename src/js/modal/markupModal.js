@@ -4,7 +4,7 @@ export const backdrop = document.querySelector('.backdropV');
 import { funcAddWatchBtn } from "../storage/storage";
 import { chekWatch } from "../storage/checkLocal";
 import { chekQueue } from "../storage/checkLocal";  
- 
+import { funcControlModalArts } from "../arts"; 
 
 
 export const markupModal = ({ title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path, id }) => {
@@ -18,15 +18,15 @@ export const markupModal = ({ title, vote_average, vote_count, popularity, origi
             <h3 class='modal__titleV '>${title != null && title? title: 'No date' }</h3>
             <div class='flexboxV' >
                 <ul class='modal__listV '>
-                    <li class='modal__descV'><p  class='modal__pV'>Vote / Votes</p><p class='modal__rV'><span class='reitV'>${vote_average.toFixed(1)}</span> / <span class='countV'>${vote_count}</span></p></li>
-                    <li class='modal__descV'><p class='modal__pV'>Popularity</p><p class='modal__valV'>${popularity.toFixed(1)}</p></li>
-                    <li class='modal__descV'><p class='modal__pV'>Original Title</p><p class='modal__valV uperV'>${original_title}</p></li>
-                    <li class='modal__descV'><p class='modal__pV'>Genre</p><p class='modal__valV'>${genres.map(g => g.name + ', ').join('').slice(0, -2) != null  &&
+                    <li class='modal__descV'><p  class='modal__pV'>Vote / Votes</p><p class='modal__rV'><span class='reitV t-js'>${vote_average.toFixed(1)}</span> / <span class='countV'>${vote_count}</span></p></li>
+                    <li class='modal__descV'><p class='modal__pV'>Popularity</p><p class='modal__valV t-js'>${popularity.toFixed(1)}</p></li>
+                    <li class='modal__descV'><p class='modal__pV'>Original Title</p><p class='modal__valV uperV t-js'>${original_title}</p></li>
+                    <li class='modal__descV'><p class='modal__pV'>Genre</p><p class='modal__valV t-js'>${genres.map(g => g.name + ', ').join('').slice(0, -2) != null  &&
                     genres.map(g => g.name + ', ').join('').slice(0, -2) ?genres.map(g => g.name + ', ').join('').slice(0, -2): 'No date'}</p></li>
                 </ul>
                 <div>
-                <p class='modal__aboutV'>About</p>
-                <p>${overview != null && overview ? overview:'No description will be added soon. Sorry for the inconvenience'}</p>
+                <p class='modal__aboutV t-js'>About</p>
+                <p class='t-js'>${overview != null && overview ? overview:'No description will be added soon. Sorry for the inconvenience'}</p>
                 </div>
                 <ul class='modal__button--listV' >
                     <li><button data-btn = ${id}  type='button' class='modal__watchV'>add to Watched</button></li>
@@ -39,21 +39,12 @@ export const markupModal = ({ title, vote_average, vote_count, popularity, origi
     // them();
     chekQueue();
     chekWatch();
+    funcControlModalArts(document.querySelectorAll('.t-js'), document.querySelector('.modalV'), document.querySelectorAll('.modal__pV'));
     
     const obj = { title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path, id };
     console.log(obj);
     return funcAddWatchBtn(obj,document.querySelector('.modal__watchV'), document.querySelector('.modal__queV'), id);   
 }
 
-/////////////////////////////////////them control///////////////
-const them = () => {
-  if (document.body.classList.contains('section-night')) {
-    document.body.classList.add('them');
-    console.log(document.querySelector('.modalV'));
-    document.querySelector('.modalV').style.backgroundColor = 'brown';
-  }
-  else {
-    document.body.classList.remove('them');
-  }
-};
+
 

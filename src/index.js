@@ -6,7 +6,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { paramsNotify } from './js/notify-params/notify-styles';
 import { modalPagination } from './js/modal/modalPagination';
 import { funcLoginControl } from './js/AutoForm/js/avtoLogin';
-import { funcControlArts } from './js/btnDayNight';
+import { funcCheck } from './js/AutoForm/js/avtoLogin';
 
 let currentGroup = 'home';
 
@@ -21,7 +21,7 @@ refs.avtoLogin.addEventListener('click', funcLoginControl);
 fetchData();
 
 btnDayNight();
-   funcControlArts();//test
+funcCheck(); 
 
 // function onClickPagginationList(event) {
 //   const currentPage = event.target.dataset.page;
@@ -129,6 +129,8 @@ function clearList() {
   refs.galleryList.innerHTML = '';
   refs.pagginationList.innerHTML = '';
 }
+
+//  window.addEventListener('onload',funcControlArts);
 
 
 

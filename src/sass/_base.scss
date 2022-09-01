@@ -63,3 +63,12 @@ img{
 //   color: #fff !important;
 //   background-color: #2d2a2a !important;
 // }
+
+.auth-chek{
+          z-index: 1;
+            pointer-events: none;
+            position: absolute;
+            top: -13px;
+            right: -30px;
+            opacity: 0;
+}

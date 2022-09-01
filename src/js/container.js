@@ -7,6 +7,8 @@ import { max } from 'lodash';
 import { funcLoader } from './preloader/preloader';
 let throttle = require('lodash.throttle');
 import { Block } from 'notiflix/build/notiflix-block-aio';
+import { funcControlArts } from './arts';
+import { controlScreen } from './modal/controlScreen';
 
 //прослуховувачі
 
@@ -15,10 +17,10 @@ refs.buttonPageTop.addEventListener('click', scrollToTop);
 
 refs.backdrop.addEventListener('click', close.funcClickBackdrop);
 
-// window.addEventListener(
-//   'onload',
-//   (e) => { e.preventDefault(); return console.log(e); }
-// ); // костыль скрытия футера
+window.addEventListener(
+  'onload',
+  (e) => { e.preventDefault();  return document.querySelector('.auth-chek').style.opacity = 1 ; }
+); // костыль скрытия футера
 
 
 window.addEventListener(
@@ -46,7 +48,11 @@ export function renderLibraryList(data, page, maxPages) {
   );
 
   document.querySelector('.footer').style.opacity = 1; //костыль
+  
+   
   modal(document.querySelectorAll('.gallery__item'));
+
+
 }
 
 export function renderMoviesList(data, page, maxPages) {
@@ -58,15 +64,18 @@ export function renderMoviesList(data, page, maxPages) {
 
   if (refs.galleryList.children.length > 0) {
     Block.dots(`.gallery__item`);
-
+    
     funcLoader(document.querySelectorAll(`.gallery__item`));
+    
+    
+    
   }
 
   refs.pagginationList.insertAdjacentHTML(
     'beforeend',
     markupPaginationList(page, maxPages)
   );
-
+  funcControlArts(document.querySelectorAll('.gallery__title'));
   document.querySelector('.footer').style.opacity = 1; //костыль
   modal(document.querySelectorAll('.gallery__item'));
 }
