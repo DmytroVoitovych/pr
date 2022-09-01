@@ -15,5 +15,4 @@ export const trackingEmptyLibrary = () => {
         
           gallery.classList.remove('overlay');
     }
-
 };
