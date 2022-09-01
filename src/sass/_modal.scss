@@ -250,6 +250,14 @@ border-radius: 5px;
             padding: 6px 27px;
             max-width: 161px;
         }
+        &:hover{
+            color: var(--bg-color-modal-orange);
+                text-transform: uppercase;
+                background: var(--text-color-light);
+                border: 2px solid #ff6b01;
+                border-radius: 5px;
+                
+        }
 }
 
 .modal__queV {
@@ -272,7 +280,15 @@ border-radius: 5px;
                     width: 100%;
                     padding: 13px 7px 13px 7px;
                 }
-            
+    &:hover {
+        color: var(--text-color-light);
+        text-transform: uppercase;
+        background: var(--bg-color-modal-orange);
+        outline: none;
+        border: 2px solid #ff6b01;
+        border-radius: 5px;
+    }
+                                        
 }
 
 .backdropV {
