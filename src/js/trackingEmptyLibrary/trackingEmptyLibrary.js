@@ -9,7 +9,8 @@ export const trackingEmptyLibrary = () => { // контродь контейне
 
     if (galleryList.children.length === 0) {
         
-       empty.classList.remove('visually-hidden');
+        empty.classList.remove('visually-hidden');
+        empty.style.opacity = 1;
        return gallery.classList.add('overlay');
 
     }

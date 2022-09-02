@@ -302,6 +302,7 @@ border-radius: 5px;
                 visibility: hidden;
                 transition: all 250ms;
                 
+                
 }
 
 .visibleV{
@@ -312,6 +313,7 @@ border-radius: 5px;
    opacity: 1;
    visibility:visible; 
    transition: all 250ms;
+   z-index: 2;
 }
 
  .closeV:hover .icoV{
