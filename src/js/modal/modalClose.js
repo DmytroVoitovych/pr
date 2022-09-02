@@ -12,7 +12,8 @@ export class ModalClose {
       backdrop.classList.toggle('visibleV'); // закрытие по кнопке
         window.addEventListener('keydown', this.funcKeyDown);  
         if (!document.querySelector('.visibleV')) {
-            this.blockScroll('auto', '', '', '');
+          this.blockScroll('auto', '', '', '');
+           !backdrop.classList.contains('visibleV') && window.removeEventListener('keydown', this.funcKeyDown);
             return window.scrollTo(0, parseInt(this.body.style.top || '0') * -1);
         }
 
@@ -40,7 +41,7 @@ export class ModalClose {
      funcClickBackdrop = e => {  //закрытие по бекдропу
         if (e.target === e.currentTarget) {
           this.onToggle();
-          
+          return !backdrop.classList.contains('visibleV') && window.removeEventListener('keydown', this.funcKeyDown);
          }
     };
 }

@@ -18,8 +18,9 @@ import { funcControlArts } from "../arts";
 
   function toggleModal() {
     const scrollY = document.documentElement.style.getPropertyValue('--scroll-y'); 
-    window.addEventListener("keydown", toggleModalEscape);
+    
     refs.modal.classList.toggle("is-hidden");
+    window.addEventListener("keydown", toggleModalEscape);
    if (refs.modal.classList.contains("is-hidden")) {
       // Disable scroll
       // refs.body.style.overflow = "hidden";
