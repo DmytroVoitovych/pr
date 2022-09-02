@@ -24,7 +24,8 @@ import { funcControlArts } from "../arts";
    if (refs.modal.classList.contains("is-hidden")) {
       // Disable scroll
       // refs.body.style.overflow = "hidden";
-      blockScroll('auto', '', '', '');
+     blockScroll('auto', '', '', '');
+      refs.modal.classList.contains('is-hidden')   &&  window.removeEventListener('keydown', toggleModalEscape);
       return window.scrollTo(0, parseInt(refs.body.style.top || '0') * -1);
       } else {
       // Enable scroll
@@ -49,7 +50,8 @@ import { funcControlArts } from "../arts";
   }
   function funcClickBackdrop(e) {
         if (e.target === e.currentTarget) {
-            toggleModal();
+          toggleModal();
+          return  refs.modal.classList.contains('is-hidden')   &&  window.removeEventListener('keydown', toggleModalEscape);
          }
     };
 })();
