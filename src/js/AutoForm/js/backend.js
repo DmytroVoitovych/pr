@@ -29,12 +29,20 @@ export class Autorisation {
 }
 
     static fetch(token) {
+        const controlLogin = window.localStorage.getItem('auth');
         if (!token) {
             console.log(token);
             Block.remove('.login100-form ');
             regVis();
             return Promise.resolve(Notify.info('Зарегистрируйтесь в системе'));
         }
+
+          
+        else if (controlLogin) { 
+         Block.remove('.login100-form');   
+         return  Notify.info('Вы уже авторизованы');  
+        }
+            
         else {
             Block.remove('.login100-form ');
              window.localStorage.setItem(`auth`, JSON.stringify(true));
