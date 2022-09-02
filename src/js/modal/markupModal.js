@@ -7,7 +7,7 @@ import { chekQueue } from "../storage/checkLocal";
 import { funcControlModalArts } from "../arts"; 
 
 
-export const markupModal = ({ title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path, id }) => {
+export const markupModal = ({ title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path, id, release_date }) => {
        
     close.onToggle();
    
@@ -41,7 +41,7 @@ export const markupModal = ({ title, vote_average, vote_count, popularity, origi
     chekWatch();
     funcControlModalArts(document.querySelectorAll('.t-js'), document.querySelector('.modalV'), document.querySelectorAll('.modal__pV'));
     
-    const obj = { title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path, id };
+    const obj = { title, vote_average, vote_count, popularity, original_title, genres, overview, poster_path, id, release_date };
     console.log(obj);
     return funcAddWatchBtn(obj,document.querySelector('.modal__watchV'), document.querySelector('.modal__queV'), id);   
 }
