@@ -5,7 +5,7 @@ export const funcLoginControl = () => {  // функция ответствен�
    
     if (controlLogin != 'true') {   
         
-    // return document.querySelector('.js-auth').setAttribute('href', 'https://dmytrovoitovych.github.io/pr/js/AutoForm/form.html');
+    return document.querySelector('.js-auth').setAttribute('href', 'https://dmytrovoitovych.github.io/pr/js/AutoForm/form.html');
   }
       
 };

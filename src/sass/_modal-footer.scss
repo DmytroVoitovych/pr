@@ -61,7 +61,7 @@
     height: 30px;
     cursor: pointer;
     border: none;
-    background-color: #FFFFFF;
+    background-color: transparent;
 
     &:hover .button-close__close-icon,
     &:focus .button-close__close-icon {
@@ -182,6 +182,7 @@
 }
 .team-list__image {
     width: 100%;
+    background-color: #FFFFFF !important;
 }
 
 .team-list__worker-info {

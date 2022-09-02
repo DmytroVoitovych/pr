@@ -1,5 +1,8 @@
 import { controlScreen } from "./controlScreen"; 
-(() => {
+import { funcControlArts } from "../arts";
+
+
+(() => {  
   const refs = {
     openModalBtn: document.querySelector(".footer__items--ref"),
     closeModalBtn: document.querySelector("[data-modal-close]"),
@@ -10,11 +13,12 @@ import { controlScreen } from "./controlScreen";
   refs.openModalBtn.addEventListener("click", toggleModal);
   refs.modal.addEventListener("click", funcClickBackdrop);
   refs.closeModalBtn.addEventListener("click", toggleModal);
-  document.addEventListener("keydown", toggleModalEscape);
+ 
   
 
   function toggleModal() {
     const scrollY = document.documentElement.style.getPropertyValue('--scroll-y'); 
+    window.addEventListener("keydown", toggleModalEscape);
     refs.modal.classList.toggle("is-hidden");
    if (refs.modal.classList.contains("is-hidden")) {
       // Disable scroll
@@ -24,6 +28,7 @@ import { controlScreen } from "./controlScreen";
       } else {
       // Enable scroll
       // refs.body.style.overflow = "auto";
+     funcControlArts(document.querySelectorAll('.t-js'))
      return  blockScroll('scroll', `${scrollY}`, `${controlScreen()}`, 'fixed');
     }
   }
@@ -36,8 +41,9 @@ import { controlScreen } from "./controlScreen";
      
   function toggleModalEscape(e) {
     if (e.code === 'Escape') {
-      refs.modal.classList.add('is-hidden');
-      document.removeEventListener('keydown');
+      toggleModal();
+      console.log('esc');
+     return  refs.modal.classList.contains('is-hidden')   &&  window.removeEventListener('keydown', toggleModalEscape);
     }   
   }
   function funcClickBackdrop(e) {

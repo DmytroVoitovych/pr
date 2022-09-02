@@ -14,7 +14,7 @@ export const getPost = async (e) => {
     const response = await movieAPiServer.fetchMovieById(); 
         console.dir(response);
       await markupModal(response);
-      await window.addEventListener('keydown', close.funcKeyDown); 
+     
       await document.querySelector('.closeV').addEventListener('click', close.onToggle); 
         
     

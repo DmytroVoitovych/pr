@@ -8,9 +8,9 @@ export class ModalClose {
     onToggle = () => {
       
       const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');   
-        
+     
       backdrop.classList.toggle('visibleV'); // закрытие по кнопке
-      
+        window.addEventListener('keydown', this.funcKeyDown);  
         if (!document.querySelector('.visibleV')) {
             this.blockScroll('auto', '', '', '');
             return window.scrollTo(0, parseInt(this.body.style.top || '0') * -1);

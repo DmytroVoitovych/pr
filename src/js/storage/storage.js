@@ -28,26 +28,26 @@ export const funcAddWatchBtn = (obj, btnW, btnQ, id) => { // функция до
 
     btnW.addEventListener('click', () => {  // в список просмотреных
         
-//  const auth = localStorage.getItem('auth');
+ const auth = localStorage.getItem('auth');
    
-        // if (!auth) {
+        if (!auth) {
      
-        //     return Notify.failure('Sorry, but you are not registered');
+            return Notify.failure('Sorry, but you are not registered',{ timeout: 1000});
   
-        // }  
+        }  
 
         if (!btnW.classList.contains('remove')) {
             btnW.classList.toggle('remove');    
 
             btnW.textContent = 'remove from Watched';
-             // Notify.success('Was added to watched');
+             Notify.success('Was added to watched', { timeout: 1000});
 
         }
         else {
             btnW.classList.toggle('remove');
             btnW.textContent = 'add to Watched';
 
-            //  Notify.success('Was deleted from watched');
+             Notify.success('Was deleted from watched',{ timeout: 1000});
 
         }
                 
@@ -58,19 +58,27 @@ export const funcAddWatchBtn = (obj, btnW, btnQ, id) => { // функция до
 
 
     btnQ.addEventListener('click', () => {  // в список очереди
+
+         const auth = localStorage.getItem('auth');
+   
+        if (!auth) {
+     
+            return Notify.failure('Sorry, but you are not registered',{ timeout: 1000});
+  
+        } 
       
 
          if (!btnQ.classList.contains('removeQ')) {
             btnQ.classList.toggle('removeQ');    
 
             btnQ.textContent = 'remove from Queue';
-
+             Notify.success('Was add from queue', { timeout: 1000});
             
                 }
         else {
             btnQ.classList.toggle('removeQ');
           btnQ.textContent = 'add to Queue';
-            // Notify.success('Was deleted from queue');
+            Notify.success('Was deleted from queue',{ timeout: 1000});
         }
       
         funcUnic(obj, id, queue, btnQ);

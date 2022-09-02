@@ -15,10 +15,10 @@ export const markupModal = ({ title, vote_average, vote_count, popularity, origi
         <button class='closeV'>${svg}</button>
         <img  ${ poster_path? `src=https://image.tmdb.org/t/p/w500${poster_path}`: 'src=https://i.ibb.co/7rX0ptx/e58db01cbe029d1732074b2e642bdc0e-3.jpg '  } alt="title" />
         <div>
-            <h3 class='modal__titleV '>${title != null && title? title: 'No date' }</h3>
+            <h3 class='modal__titleV t-js'>${title != null && title? title: 'No date' }</h3>
             <div class='flexboxV' >
                 <ul class='modal__listV '>
-                    <li class='modal__descV'><p  class='modal__pV'>Vote / Votes</p><p class='modal__rV'><span class='reitV t-js'>${vote_average.toFixed(1)}</span> / <span class='countV'>${vote_count}</span></p></li>
+                    <li class='modal__descV'><p  class='modal__pV'>Vote / Votes</p><p class='modal__rV'><span class='reitV'>${vote_average.toFixed(1)}</span> / <span class='countV'>${vote_count}</span></p></li>
                     <li class='modal__descV'><p class='modal__pV'>Popularity</p><p class='modal__valV t-js'>${popularity.toFixed(1)}</p></li>
                     <li class='modal__descV'><p class='modal__pV'>Original Title</p><p class='modal__valV uperV t-js'>${original_title}</p></li>
                     <li class='modal__descV'><p class='modal__pV'>Genre</p><p class='modal__valV t-js'>${genres.map(g => g.name + ', ').join('').slice(0, -2) != null  &&

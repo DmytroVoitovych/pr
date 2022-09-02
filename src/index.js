@@ -18,6 +18,7 @@ refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.form.addEventListener('submit', onSubmitForm);
 refs.galleryList.classList.add('home');
 refs.avtoLogin.addEventListener('click', funcLoginControl);
+// window.addEventListener("keydown", toggleModalEscape);// футер модал ескейп
 fetchData();
 
 btnDayNight();
