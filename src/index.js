@@ -18,7 +18,7 @@ refs.pagginationList.addEventListener('click', onClickPagginationList);
 refs.form.addEventListener('submit', onSubmitForm);
 refs.galleryList.classList.add('home');
 refs.avtoLogin.addEventListener('click', funcLoginControl);
-// window.addEventListener("keydown", toggleModalEscape);// футер модал ескейп
+
 fetchData();
 
 btnDayNight();
@@ -131,7 +131,7 @@ function clearList() {
   refs.pagginationList.innerHTML = '';
 }
 
-//  window.addEventListener('onload',funcControlArts);
+
 
 
 

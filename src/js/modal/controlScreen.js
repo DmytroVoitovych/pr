@@ -11,5 +11,5 @@ export const controlScreen = () => {
     let scrollWidth = div.offsetWidth - div.clientWidth;
     document.body.style.overflow = "visible !important";
     div.remove();
-    return  `calc(100vw - ${scrollWidth}px)`;
+    return  `calc(100vw - ${scrollWidth}px)`; 
 }
